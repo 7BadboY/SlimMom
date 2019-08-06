@@ -1,0 +1,19 @@
+.productWrapper {
+  display: flex;
+max-width: 200px;
+justify-content: space-between;
+min-width: 500px;
+}
+.product_title{
+  max-width: 30%;
+}
+.product_weight{
+  max-width: 30%;
+}
+.product_ccal{
+  max-width: 30%;
+
+}
+@media () {
+
+}

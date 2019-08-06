@@ -1,5 +1,3 @@
-
 import { ReactComponent as Exit } from './exit.svg';
 
-
-export {  Exit };
+export default { Exit };

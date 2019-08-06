@@ -1,16 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const addNewProduct = (props) => {
+const AddNewProduct = ({ toogleModal }) => {
   return (
     <div>
-      <p>Add New Product</p>
+      <p>Add New Product Component</p>
+      <button onClick={toogleModal} type="button">
+        asdasdasdasd
+      </button>
     </div>
-  )
-}
+  );
+};
 
-addNewProduct.propTypes = {
+AddNewProduct.propTypes = {
+  toogleModal: PropTypes.func.isRequired
+};
 
-}
-
-export default addNewProduct;
+export default AddNewProduct;
