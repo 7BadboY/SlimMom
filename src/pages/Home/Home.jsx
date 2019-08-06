@@ -3,7 +3,9 @@ import style from './Home.module.css'
 import CalcForm from '../../components/CalcForm/CalcForm';
 
 class Home extends Component {
-  state = {};
+  state = {
+    modalOpened: false,
+  };
 
   render() {
     return (
