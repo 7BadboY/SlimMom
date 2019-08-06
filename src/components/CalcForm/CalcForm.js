@@ -9,7 +9,6 @@ class CalcForm extends Component {
     currentWeight: '',
     desireWeight: '',
     groupBlood: '',
-    isOpenModal: false
   };
 
   handleChange = e => {

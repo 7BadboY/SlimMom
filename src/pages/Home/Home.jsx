@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import style from './Home.module.css'
+import CalcForm from '../../components/CalcForm/CalcForm';
 
 class Home extends Component {
   state = {};
@@ -8,7 +9,7 @@ class Home extends Component {
     return (
       <div >
         <div>place for header</div>
-        <div>place for калькулятор</div>
+        <div><CalcForm /></div>
       </div>
     );
   }
