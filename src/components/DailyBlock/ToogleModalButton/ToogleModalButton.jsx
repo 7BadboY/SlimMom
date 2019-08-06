@@ -5,7 +5,7 @@ const ShowModalButton = ({ toogleModal }) => {
   return (
     <div>
       <button type="button" onClick={toogleModal}>
-        asdasdasdasdasdasdasdasd
+        Открыть модалку
       </button>
     </div>
   );

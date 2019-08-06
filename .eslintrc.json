@@ -21,7 +21,6 @@
   },
   "rules": {
     "no-console": 1,
-    "linebreak-style": ["error", "unix"],
     "react/jsx-filename-extension": [
       1,
       {
@@ -36,7 +35,8 @@
       }
     ],
     "no-underscore-dangle": "warn",
-    "import/no-named-as-default": "warn"
+    "import/no-named-as-default": "warn",
+    "linebreak-style":"off"
     },
   "globals": {
     "window": true,

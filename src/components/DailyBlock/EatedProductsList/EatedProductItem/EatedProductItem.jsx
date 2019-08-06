@@ -1,25 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Tr, Td } from 'react-super-responsive-table';
 
 import styles from './EatedProductItem.module.css';
 import { ReactComponent as Delete } from '../../../../assets/icons/delete.svg';
 
 const EatedProductItem = ({ productItem }) => {
   return (
-    <li className={styles.productWrapper}>
-      <p className={styles.product_title}>{productItem.title.ru}</p>
-      <p className={styles.product_weight}>
+    <Tr className={styles.productWrapper}>
+      <Td className={styles.product_title}>{productItem.title.ru}</Td>
+      <Td className={styles.product_weight}>
         {productItem.weight}
-        <span className={styles}>г</span>
-      </p>
-      <p className={styles.product_ccal}>
+        <span className={styles.as}>г</span>
+      </Td>
+      <Td className={styles.product_ccal}>
         {productItem.calories}
-        <span className={styles}>ккал</span>
-      </p>
-      <button type="button" onClick={null}>
-        <Delete className={styles.delete_btn} />
-      </button>
-    </li>
+        <span className={styles.as}>ккал</span>
+      </Td>
+      <Td>
+        <button type="button" onClick={null}>
+          <Delete className={styles.delete_btn} />
+        </button>
+      </Td>
+    </Tr>
   );
 };
 

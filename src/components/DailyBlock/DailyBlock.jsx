@@ -3,25 +3,30 @@ import PropTypes from 'prop-types';
 import windowSize from 'react-window-size';
 import { connect } from 'react-redux';
 import AddNewProduct from './AddNewProduct/AddNewProduct';
-import DatePicker from './datePicker/datePicker';
+import DatePicker from './DatePicker/DatePicker';
 import EatedProductsList from './EatedProductsList/EatedProductsList';
 import { products } from './products.json';
 import AddNewProductModal from './AddNewProductModal/AddNewProductModal';
-import ShowModalButton from './ShowModalButton/ShowModalButton';
+import ToogleModalButton from './ToogleModalButton/ToogleModalButton';
+import { handlerToogleModalProducts, getAllProducts } from '../../redux/actions/productActions';
 
 export class DaylyBlock extends Component {
   static propTypes = {
-    windowWidth: PropTypes.number.isRequired
+    windowWidth: PropTypes.number.isRequired,
+    toogleModal: PropTypes.func.isRequired,
+    isModalShowed: PropTypes.bool.isRequired,
+    showAllProd: PropTypes.func.isRequired
   };
 
   state = {
-    productsDB: products,
-    isModalShow: false
+    productsDB: products
   };
 
   componentDidMount = () => {
-    // fetch and set to redux store products
-    // set current date
+    const { showAllProd } = this.props;
+    const token =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZDQ5NmNhMGNhYzk1YzFmMjQ2ZDU1YjIiLCJjcmVhdGVkRGF0ZSI6MTU2NTA5MzU4MjczNSwiZXhwIjoxNTY3Njg1NTgyfQ.hUuw6uW5aw9y5iGJf8AJc0s9ox7GXN4b67aDx6v-g0o';
+    showAllProd(token);
   };
 
   handleToogleModal = () => {
@@ -34,31 +39,39 @@ export class DaylyBlock extends Component {
   };
 
   render() {
-    const { productsDB, isModalShow } = this.state;
+    const { productsDB } = this.state;
     // const { products } = this.props
-    const { windowWidth } = this.props;
-
+    const { windowWidth, toogleModal, isModalShowed } = this.props;
     return (
       <div>
         <DatePicker />
-        {!isModalShow && windowWidth > 767 && <AddNewProduct />}
+        {windowWidth > 767 && <AddNewProduct />}
         <EatedProductsList products={productsDB} />
-        {isModalShow && windowWidth < 767 && (
+        {/* {isFetchLoader && <>} */}
+
+        {isModalShowed && windowWidth < 767 && (
           <AddNewProductModal>
-            <AddNewProduct toogleModal={this.handleToogleModal} />
+            <AddNewProduct toogleModal={toogleModal} />
           </AddNewProductModal>
         )}
-        {!isModalShow && windowWidth < 767 && <ShowModalButton toogleModal={this.handleToogleModal} />}
+        {!isModalShowed && windowWidth < 767 && <ToogleModalButton toogleModal={toogleModal} />}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  isSome: state.isSome
+  isModalShowed: state.dailyBlock.isModalProduct
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = dis => ({
+  toogleModal() {
+    dis(handlerToogleModalProducts());
+  },
+  showAllProd(token) {
+    dis(getAllProducts(token));
+  }
+});
 
 export default connect(
   mapStateToProps,

@@ -8,3 +8,4 @@ src/utils/serviceWorker.js
 src/utils/requests.js
 src/utils/entyPoints.js
 src/redux/reducers/session.js
+src/hoc/ProtectedComponent.jsx

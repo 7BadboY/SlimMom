@@ -1,8 +1,6 @@
 .productWrapper {
-  display: flex;
-max-width: 200px;
-justify-content: space-between;
-min-width: 500px;
+width: 100%;
+margin: 0 auto;
 }
 .product_title{
   max-width: 30%;
@@ -14,6 +12,10 @@ min-width: 500px;
   max-width: 30%;
 
 }
+.as{
+  font-size: 13px
+}
+
 @media () {
 
 }

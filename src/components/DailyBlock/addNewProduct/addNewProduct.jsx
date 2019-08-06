@@ -5,9 +5,15 @@ const AddNewProduct = ({ toogleModal }) => {
   return (
     <div>
       <p>Add New Product Component</p>
-      <button onClick={toogleModal} type="button">
-        asdasdasdasd
+      <button onClick={null} type="button">
+        Add product
       </button>
+
+      {toogleModal && (
+        <button onClick={toogleModal} type="button">
+          закрыть модалку
+        </button>
+      )}
     </div>
   );
 };

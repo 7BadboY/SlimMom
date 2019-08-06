@@ -6,7 +6,7 @@ const AddNewProductModal = ({ children }) => {
 };
 
 AddNewProductModal.propTypes = {
-  children: PropTypes.func.isRequired
+  children: PropTypes.shape({}).isRequired
 };
 
 export default AddNewProductModal;
