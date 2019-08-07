@@ -1,6 +1,26 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { validations } from 'indicative/validator';
 
 import css from './CalcForm.module.css';
+
+const rules = {
+  height: 'required|integer|range:1,230',
+  age: 'required|integer|range:1,99',
+  currentWeight: 'required|range:1,199',
+  desireWeight: 'required|range:1,199',
+  groupBlood: 'required|integer|range:1,4'
+};
+
+const messages = {
+  required: 'Поле обязательно для заполнения',
+  integer: 'Введите целое число',
+  'height.range': 'Введите целое число от 1 до 230',
+  'age.range': 'Введите целое число от 1 до 99',
+  'currentWeight.range': 'Введите целое число от 1 до 199',
+  'desireWeight.range': 'Введите целое число от 1 до 199',
+  'groupBlood.range': 'Введите целое число от 1 до 4'
+};
 
 class CalcForm extends Component {
   state = {
@@ -8,7 +28,8 @@ class CalcForm extends Component {
     age: '',
     currentWeight: '',
     desireWeight: '',
-    groupBlood: ''
+    groupBlood: '',
+    errors: null
   };
 
   handleChange = e => {
@@ -17,10 +38,16 @@ class CalcForm extends Component {
     });
   };
 
-  handleToggleModal = () => {
-    this.setState(state => ({
-      isOpenModal: !state.isOpenModal
-    }));
+  handleSubmit = () => {
+    const { height, age, currentWeight, desireWeight, groupBlood } = this.state;
+
+    validations({ height, age, currentWeight, desireWeight, groupBlood }, rules, messages)
+      .then(data => {
+        console.log(data);
+      })
+      .catch(errors => {
+        console.log(errors);
+      });
   };
 
   render() {
@@ -103,6 +130,9 @@ class CalcForm extends Component {
               </section>
             </div>
           </form>
+          <button type="button" className={css.btn} onClick={this.handleSubmit}>
+            Начать худеть
+          </button>
         </div>
       </div>
     );
