@@ -16,3 +16,8 @@
 .homeContainer{
   padding: 0 25px;
 }
+@media(min-width: 1024px){
+  .homeContainer{
+    padding: 0 25px;
+  }
+}
