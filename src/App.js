@@ -5,6 +5,7 @@ import Login from './pages/Login/Login.jsx';
 import Home from './pages/Home/Home';
 import ProtectedComponent from './hoc/ProtectedComponent';
 
+
 function App() {
   return (
     <>
