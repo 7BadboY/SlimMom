@@ -1,7 +1,7 @@
 import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import { addStore } from '../../redux/actions/productActions';
-import { pushNewData } from '../../utils/requests';
+// import { pushNewData } from '../../utils/requests';
 import styles from './Result.module.css';
 
 class Result extends Component {
@@ -56,7 +56,7 @@ class Result extends Component {
       dailyRate
     };
     if (session.token) {
-      return newInfo(session.token, newData);
+      // return newInfo(session.token, newData);
     }
     return add(newData);
   };
@@ -128,7 +128,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   add: store => dispatch(addStore(store)),
-  newInfo: (token, data) => dispatch(pushNewData(token, data))
+  // newInfo: (token, data) => dispatch(pushNewData(token, data))
 });
 
 export default connect(

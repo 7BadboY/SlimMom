@@ -1,3 +1,5 @@
+import { STORE_ADD, ADD_FETCH_SUCCESS } from '../actions/constants';
+
 const INITIAL_STATE = {
   user: {
     groupBlood: 1,
