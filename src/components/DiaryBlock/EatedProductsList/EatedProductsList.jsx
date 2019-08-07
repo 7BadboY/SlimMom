@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Table, Tbody } from 'react-super-responsive-table';
@@ -7,33 +7,32 @@ import styles from './EatedProductsList.module.css';
 
 import EatedProductItem from './EatedProductItem/EatedProductItem';
 
-const EatedProductsList = ({ products, isFetchLoader }) => {
-  const [num, incNum] = useState(1);
+const EatedProductsList = ({ products, isAllProductsLoader }) => {
+  useEffect(() => {
+    // effect
+    // return () => {
+    //   cleanup
+    // };
+  }, [isAllProductsLoader]);
 
-  console.log(num);
-
-  const doSome = () => {
-    incNum(prev => prev + 1);
-  };
-
+  console.log({ isAllProductsLoader });
   return (
     <>
-      <button onClick={doSome} type="button">
-        {num}
-      </button>
-      {isFetchLoader && (
-        <div className={styles.fetch_loader}>
-          <Spinner
-            name="pacman"
-            style={{
-              color: 'red',
-              display: 'block',
-              margin: '0 auto'
-            }}
-          />
-        </div>
-      )}
-      {!isFetchLoader && (
+      {products.length === 0 && <p>В этот день ничего не ели!</p>}
+      {/* {isAllProductsLoader && ( */}
+      <div className={styles.fetch_loader}>
+        <Spinner
+          name="pacman"
+          style={{
+            color: 'red',
+            display: 'block',
+            margin: '0 auto'
+          }}
+        />
+      </div>
+      {/* )} */}
+
+      {!isAllProductsLoader && (
         <Table>
           <Tbody>
             {products.map(el => {
@@ -47,7 +46,7 @@ const EatedProductsList = ({ products, isFetchLoader }) => {
 };
 
 const mapStateToProps = state => ({
-  isFetchLoader: state.dailyBlock.isFetchLoader
+  isAllProductsLoader: state.dailyBlock.isAllProductsLoader
 });
 
 const mapDispatchToProps = {};
@@ -59,5 +58,5 @@ export default connect(
 
 EatedProductsList.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
-  isFetchLoader: PropTypes.func.isRequired
+  isAllProductsLoader: PropTypes.bool.isRequired
 };

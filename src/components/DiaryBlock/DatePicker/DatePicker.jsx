@@ -15,9 +15,8 @@ const DatePicker = ({ handleDate }) => {
       <ReactDatetime
         defaultValue={new Date()}
         timeFormat={false}
-        locale={window.navigator.languages}
+        locale={window.navigator.language}
         closeOnSelect
-        className={styles.datePicker}
         onChange={handleDate}
       />
       <i className={styles.datePicker_icon} />
