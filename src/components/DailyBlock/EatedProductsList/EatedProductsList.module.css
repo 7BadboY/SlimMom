@@ -1,0 +1,6 @@
+.firstBlock {
+  width: 100%;
+  border: 1px solid green;
+  padding-left: 20px;
+  border-spacing: 16px;
+}

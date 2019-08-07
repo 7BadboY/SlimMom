@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import windowSize from 'react-window-size';
 import { connect } from 'react-redux';
-import AddNewProduct from './AddNewProduct/AddNewProduct';
-import DatePicker from './DatePicker/DatePicker';
-import EatedProductsList from './EatedProductsList/EatedProductsList';
-import { products } from './products.json';
-import AddNewProductModal from './AddNewProductModal/AddNewProductModal';
-import ToogleModalButton from './ToogleModalButton/ToogleModalButton';
-import s from '../DailyBlock/DiaryBlock/DailyBlock.module.css';
+import AddNewProduct from '../AddNewProduct/AddNewProduct';
+import DatePicker from '../DatePicker/DatePicker';
+import EatedProductsList from '../EatedProductsList/EatedProductsList';
+import { products } from '../products.json';
+import AddNewProductModal from '../AddNewProductModal/AddNewProductModal';
+import ToogleModalButton from '../ToogleModalButton/ToogleModalButton';
+import s from './DailyBlock.module.css';
 
 export class DaylyBlock extends Component {
   static propTypes = {
@@ -40,7 +40,7 @@ export class DaylyBlock extends Component {
     const { windowWidth } = this.props;
     console.log(`Width:`, windowWidth);
     return (
-      <div>
+      <div className={s.container}>
         <div className={s.wrapper}>
           <DatePicker />
           {windowWidth > 767 && <AddNewProduct />}

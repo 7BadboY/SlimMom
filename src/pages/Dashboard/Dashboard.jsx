@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DaylyBlock from '../../components/DailyBlock/DailyBlock';
+import DaylyBlock from '../../components/DailyBlock/DiaryBlock/DailyBlock';
 
 class Dashboard extends Component {
   state = {};

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Tr, Td } from 'react-super-responsive-table';
 import styles from './EatedProductItem.module.css';
 import { ReactComponent as Delete } from '../../../../assets/icons/delete.svg';
+import Del from '../../../Icon/delete.png';
 
 const EatedProductItem = ({ productItem }) => {
   return (
@@ -16,9 +17,10 @@ const EatedProductItem = ({ productItem }) => {
         {productItem.calories}
         <span className={styles.as}>ккал</span>
       </Td>
-      <Td>
+      <Td className={styles.distBut}>
         <button type="button" onClick={null} className={styles.but}>
           <Delete className={styles.delete_svg} />
+          {/* <img src={Del} alt="" /> */}
         </button>
       </Td>
     </Tr>

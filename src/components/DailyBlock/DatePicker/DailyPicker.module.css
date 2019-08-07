@@ -10,8 +10,20 @@
 
 .container {
   border: solid 1px blue;
+  display: flex;
 }
 
 .firstBlock {
   border: solid 1px green;
+  margin-bottom: 20px;
+}
+
+.calendar {
+  font-size: 17px;
+}
+
+.calendar_picture {
+  background: url(../../Icon/iocn_calendar.png);
+  height: 16px;
+  width: 14px;
 }
