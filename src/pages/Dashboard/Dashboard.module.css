@@ -1,0 +1,30 @@
+
+.grid {
+display: grid;
+grid-template-areas:
+        "h"
+        "c"
+        "s";
+grid-template-columns: 1fr;
+}
+    .header {
+      grid-area: h;
+      background-color: yellow;
+    }
+    .calkBlock{
+      grid-area: c;
+      background-color: orange;
+    }
+    .summary {
+      grid-area: s;
+      background-color: green;
+    }
+    @media(min-width: 1024px) {
+      .grid {
+        grid-template-areas:
+        "h h"
+        "c s";
+        grid-template-columns: 8fr 5fr;
+
+      }
+    }

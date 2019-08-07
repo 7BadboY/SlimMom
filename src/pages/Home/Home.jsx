@@ -5,6 +5,7 @@ import Result from '../../components/Result/Result'
 import Header from '../../components/Header/Header';
 import UserBar from '../../components/UserBar/UserBar';
 
+
 class Home extends Component {
   state = {
     isOpenModal: false,
@@ -15,14 +16,15 @@ class Home extends Component {
     }));
   };
   render() {
-    const {isOpenModal} = this.state
+    const { isOpenModal } = this.state
     return (
-      <div >
-        <div><Header /><UserBar /></div>
+
+      <div className={style.homeContainer}>
+        <div><Header/><UserBar /></div>
         <div><CalcForm /></div>
-        <div>{isOpenModal&&<Result  onClose={this.handleToggleModal} />}</div>
+        <div>{isOpenModal && <Result onClose={this.handleToggleModal} />}</div>
         <button onClick={this.handleToggleModal} type="button" className={style.calc}>
-                Начать худеть
+          Начать худеть
               </button>
       </div>
     );
