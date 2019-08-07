@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DaylyBlock from '../../components/DailyBlock/DailyBlock';
+import DiaryBlock from '../../components/DiaryBlock/DiaryBlock';
 
 class Dashboard extends Component {
   state = {};
@@ -8,7 +8,7 @@ class Dashboard extends Component {
     return (
       <>
         <p>Dashboard</p>
-        <DaylyBlock />
+        <DiaryBlock />
       </>
     );
   }

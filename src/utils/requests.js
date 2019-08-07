@@ -21,23 +21,9 @@ export const fetchCompleteTask = (token, task) => {
 };
 
 
-function makeASandwichWithSecretSauce(forPerson) {
-  // We can invert control here by returning a function - the "thunk".
-  // When this function is passed to `dispatch`, the thunk middleware will intercept it,
-  // and call it with `dispatch` and `getState` as arguments.
-  // This gives the thunk function the ability to run some logic, and still interact with the store.
-  return function (dispatch) {
-    return fetchSecretSauce().then(
-      sauce => dispatch(makeASandwich(forPerson, sauce)),
-      error => dispatch(apologize('The Sandwich Shop', forPerson, error))
-    );
-  };
-}
 
-// showAllProd(token) {
-//   dis(fetchAllProducts(token));
-// }
-
+// Получение всех продуктов для днивника
+// вызывается в экшене и записывает ответ в стор
 export const fetchAllProducts = (token) => {
   return axios.get(api.url.products(), setToken(token))
   .then(resp => {
@@ -45,4 +31,14 @@ export const fetchAllProducts = (token) => {
     return products
   })
   .catch(err=> {console.log(err)});
+}
+
+export const fetchProductsByDay = (token, date) => {
+  console.log(api.url.productsByDay()+ date);
+  return axios.get(api.url.productsByDay()+ date, setToken(token))
+  .then(resp => {
+    const { products } = resp.data;
+    return products
+  })
+  .catch(err=> {console.log(err.message)});
 }
