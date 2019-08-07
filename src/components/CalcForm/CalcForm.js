@@ -8,7 +8,7 @@ class CalcForm extends Component {
     age: '',
     currentWeight: '',
     desireWeight: '',
-    groupBlood: '',
+    groupBlood: ''
   };
 
   handleChange = e => {
@@ -28,8 +28,10 @@ class CalcForm extends Component {
     return (
       <div className={css.wrapper}>
         <div className={css.container}>
-          <p className={css.title}>Узнай свою суточную </p>
-          <p className={css.title}>норму калорий</p>
+          <div className={css.titleContainer}>
+            <p className={css.title}>Узнай свою суточную </p>
+            <p className={css.title}>норму калорий</p>
+          </div>
           <form>
             <div className={css.leftInputs}>
               <label htmlFor="height">
