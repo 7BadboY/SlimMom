@@ -10,57 +10,36 @@
   border: none;
 }
 
-<<<<<<< HEAD
-.homeContainer>* {
-  margin: 30px 0;
-}
-=======
->>>>>>> DiaryBloack/Pasha
 .homeContainer{
   padding: 0 25px;
   height: 100vh;
 }
-<<<<<<< HEAD
-=======
 .homeHeader{
   margin-bottom: 45px;
   }
 
->>>>>>> DiaryBloack/Pasha
 @media(min-width: 768px){
   .homeContainer{
-    background-image: url(../../assets/images/home_tablet.png); 
+    background-image: url(../../assets/images/home_tablet.png);
     background-repeat: no-repeat;
     background-position: bottom right;
   }
-<<<<<<< HEAD
-=======
   .homeHeader{
    margin-bottom: 110px;
    }
->>>>>>> DiaryBloack/Pasha
 }
 @media(min-width: 1024px){
   .homeContainer{
     padding: 0 25px;
-    background-image: url(../../assets/images/home_descktop.png); 
+    background-image: url(../../assets/images/home_descktop.png);
     background-size: 750px;
   }
-<<<<<<< HEAD
-=======
     .homeHeader{
     margin-bottom: 150px;
     }
->>>>>>> DiaryBloack/Pasha
   .homeGroup{
     width: 70%;
     margin: left;
 
   }
-<<<<<<< HEAD
-  .homeGroup > *{
-    margin-bottom: 60px;
-  }
-=======
->>>>>>> DiaryBloack/Pasha
 }
