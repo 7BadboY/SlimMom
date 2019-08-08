@@ -6,14 +6,11 @@ grid-template-areas:
         "c"
         "s";
 grid-template-columns: 1fr;
-<<<<<<< HEAD
-=======
-
->>>>>>> DashBoard
+height: 100vh;
 }
     .headerBlock_container {
       grid-area: h;
-      background-color: yellow;
+
     }
     .calcDairyBlock_container{
       grid-area: c;

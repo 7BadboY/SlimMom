@@ -1,22 +1,9 @@
 import React, { Component } from 'react';
-import styles from './Dashboard.module.css';
-<<<<<<< HEAD
-import Summery from '../../components/Summary/Summary'
-
-const Dashboard = () => {
-  return (
-    <>
-    <section className={styles.grid}>
-      <div className={styles.header}>Header</div>
-      <div className={styles.calkBlock}>CalcBlock</div>
-      <div className={styles.summary}>
-        <Summery/>
-      </div>
-    </section>
-    </>
-  )
-=======
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import styles from './Dashboard.module.css';
+import Header from '../../components/Header/Header';
+import CalcForm from "../../components/CalcForm/CalcForm";
+import Summary from '../../components/Summary/Summary';
 import windowSize from 'react-window-size';
 
 class Dashboard extends Component {
@@ -29,21 +16,20 @@ class Dashboard extends Component {
         <>
             <section className={styles.grid}>
              <div className={styles.headerBlock_container}>
-              Header
+              <Header />
                </div>
              <div className={styles.calcDairyBlock_container}>
-                <Route path="/calc/" exact component={calc} />
-                <Route path="/diary/" component={diary} />
+                <Route path="/dashboard/calc/" exact component={<CalcForm />} />
+                {/* <Route path="/dashboard/diary/" component={diary} /> */}
                </div>
              <div className={styles.summaryBlock_container}>
-              SummaryBlock
+              <Summary />
                </div>
            </section>
           </>
       </Router>
       );
   }
->>>>>>> DashBoard
 }
 
 export default Dashboard;
