@@ -11,12 +11,13 @@ class Dashboard extends Component {
   };
 
   render() {
+    const { token } = this.props
     return (
       <Router>
         <>
             <section className={styles.grid}>
              <div className={styles.headerBlock_container}>
-              <Header />
+             <Header token={token} />
                </div>
              <div className={styles.calcDairyBlock_container}>
                 <Route path="/dashboard/calc/" exact component={<CalcForm />} />
