@@ -17,9 +17,9 @@ const EatedProductItem = ({ productItem }) => {
         {productItem.calories}
         <span className={styles.as}>ккал</span>
       </Td>
-      <Td>
-        <button type="button" onClick={null}>
-          <Delete className={styles.delete_btn} />
+      <Td className={styles.distBut}>
+        <button type="button" onClick={null} className={styles.but}>
+          <Delete className={styles.delete_svg} />
         </button>
       </Td>
     </Tr>

@@ -25,23 +25,21 @@ const DiaryBlock = ({
   productsByDay,
   isAllProductsLoader
 }) => {
-  console.log(productsByDay);
-  console.log({ isAllProductsLoader });
   useEffect(() => {
+    console.log({ productsByDay });
+    console.log({ isAllProductsLoader });
     console.log(`compDidMount`);
     setAllProd(token);
-    const now = new Date();
-    const date = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-    console.log({ date });
-    // setProductsByDay(token, date);
+    const date = new Date().getTime();
+    setProductsByDay(token, date);
   }, []);
 
   const handleDate = e => {
     // console.log(e._d);
-    const date = e._d;
-    const newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
-    setProductsByDay(token, newDate);
-    console.log(newDate);
+    const date = e._d.getTime();
+
+    setProductsByDay(token, date);
+    console.log(date);
   };
 
   return (

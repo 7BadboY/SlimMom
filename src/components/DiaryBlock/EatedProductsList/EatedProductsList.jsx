@@ -7,16 +7,16 @@ import styles from './EatedProductsList.module.css';
 
 import EatedProductItem from './EatedProductItem/EatedProductItem';
 
-const EatedProductsList = ({ productsByDay, isAllProductsLoader }) => {
+const EatedProductsList = ({ productsByDay, isProductsByDayLoader }) => {
   useEffect(() => {
     console.log(221424);
-    console.log({ isAllProductsLoader });
+    console.log({ isProductsByDayLoader });
   });
 
   return (
     <>
       {productsByDay.length === 0 && <p>В этот день ничего не ели!</p>}
-      {isAllProductsLoader && (
+      {isProductsByDayLoader && (
         <div className={styles.fetch_loader}>
           <Spinner
             name="pacman"
@@ -29,8 +29,8 @@ const EatedProductsList = ({ productsByDay, isAllProductsLoader }) => {
         </div>
       )}
 
-      {!isAllProductsLoader && (
-        <Table>
+      {!isProductsByDayLoader && (
+        <Table className={styles.firstBlock}>
           <Tbody>
             {productsByDay.map(el => {
               return <EatedProductItem productItem={el} key={el._id} />;
@@ -43,7 +43,7 @@ const EatedProductsList = ({ productsByDay, isAllProductsLoader }) => {
 };
 
 const mapStateToProps = state => ({
-  isAllProductsLoader: state.dailyBlock.isAllProductsLoader,
+  isProductsByDayLoader: state.dailyBlock.isProductsByDayLoader,
   productsByDay: state.dailyBlock.productsByDay
 });
 
@@ -56,5 +56,5 @@ export default connect(
 
 EatedProductsList.propTypes = {
   productsByDay: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
-  isAllProductsLoader: PropTypes.bool.isRequired
+  isProductsByDayLoader: PropTypes.bool.isRequired
 };

@@ -1,5 +1,5 @@
 {
-  "name": "SlimMom",
+  "name": "y",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://github.com/AndrewSlobodianiuk/SlimMom.git",
@@ -158,5 +158,9 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/AndrewSlobodianiuk/SlimMom.git",
+  "author": "ваше имяwlad999 <wladmail25@gmeil.com>",
+  "license": "MIT"
 }
