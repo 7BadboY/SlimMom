@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import style from './Home.module.css';
 import CalcForm from '../../components/CalcForm/CalcForm';
 import Result from '../../components/Result/Result';
@@ -28,3 +29,4 @@ class Home extends Component {
   }
 }
 
+export default Home;
