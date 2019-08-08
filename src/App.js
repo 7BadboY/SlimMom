@@ -7,7 +7,6 @@ import ProtectedComponent from './hoc/ProtectedComponent';
 
 function App() {
   return (
-<<<<<<< HEAD
     <>
       <Switch>
         <ProtectedComponent active={false} path="/login" component={Login} />
@@ -15,13 +14,6 @@ function App() {
         <ProtectedComponent active={true} exact path="/dashboard" component={Dashboard} />
       </Switch>
     </>
-=======
-    <Switch>
-      <ProtectedComponent active={false} path="/login" component={Login} />
-      <ProtectedComponent active={false} exact path="/" component={Home} />
-      <ProtectedComponent active exact path="/dashboard" component={Dashboard} />
-    </Switch>
->>>>>>> DiaryBloack/Pasha
   );
 }
 
