@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styles from './Dashboard.module.css';
 import Header from '../../components/Header/Header';
 import CalcForm from "../../components/CalcForm/CalcForm";
 import Summary from '../../components/Summary/Summary';
 import windowSize from 'react-window-size';
 
-class Dashboard extends Component {
+export default class Dashboard extends Component {
   state = {};
 
   render() {
