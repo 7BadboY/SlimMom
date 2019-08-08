@@ -7,35 +7,32 @@ import styles from './EatedProductsList.module.css';
 
 import EatedProductItem from './EatedProductItem/EatedProductItem';
 
-const EatedProductsList = ({ products, isAllProductsLoader }) => {
+const EatedProductsList = ({ productsByDay, isAllProductsLoader }) => {
   useEffect(() => {
-    // effect
-    // return () => {
-    //   cleanup
-    // };
-  }, [isAllProductsLoader]);
+    console.log(221424);
+    console.log({ isAllProductsLoader });
+  });
 
-  console.log({ isAllProductsLoader });
   return (
     <>
-      {products.length === 0 && <p>В этот день ничего не ели!</p>}
-      {/* {isAllProductsLoader && ( */}
-      <div className={styles.fetch_loader}>
-        <Spinner
-          name="pacman"
-          style={{
-            color: 'red',
-            display: 'block',
-            margin: '0 auto'
-          }}
-        />
-      </div>
-      {/* )} */}
+      {productsByDay.length === 0 && <p>В этот день ничего не ели!</p>}
+      {isAllProductsLoader && (
+        <div className={styles.fetch_loader}>
+          <Spinner
+            name="pacman"
+            style={{
+              color: 'red',
+              display: 'block',
+              margin: '0 auto'
+            }}
+          />
+        </div>
+      )}
 
       {!isAllProductsLoader && (
         <Table>
           <Tbody>
-            {products.map(el => {
+            {productsByDay.map(el => {
               return <EatedProductItem productItem={el} key={el._id} />;
             })}
           </Tbody>
@@ -46,7 +43,8 @@ const EatedProductsList = ({ products, isAllProductsLoader }) => {
 };
 
 const mapStateToProps = state => ({
-  isAllProductsLoader: state.dailyBlock.isAllProductsLoader
+  isAllProductsLoader: state.dailyBlock.isAllProductsLoader,
+  productsByDay: state.dailyBlock.productsByDay
 });
 
 const mapDispatchToProps = {};
@@ -57,6 +55,6 @@ export default connect(
 )(EatedProductsList);
 
 EatedProductsList.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+  productsByDay: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
   isAllProductsLoader: PropTypes.bool.isRequired
 };

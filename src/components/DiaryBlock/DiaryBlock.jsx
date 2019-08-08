@@ -22,10 +22,11 @@ const DiaryBlock = ({
   isModalShowed,
   toogleModal,
   token,
-  productsByDay
+  productsByDay,
+  isAllProductsLoader
 }) => {
   console.log(productsByDay);
-
+  console.log({ isAllProductsLoader });
   useEffect(() => {
     console.log(`compDidMount`);
     setAllProd(token);
@@ -47,7 +48,7 @@ const DiaryBlock = ({
     <div className={styles.diaryBlock_wrapper}>
       <DatePicker handleDate={handleDate} />
       {windowWidth > 767 && <AddNewProduct />}
-      <EatedProductsList products={productsByDay} />
+      <EatedProductsList />
 
       {isModalShowed && windowWidth < 767 && (
         <AddNewProductModal>
@@ -62,8 +63,7 @@ const DiaryBlock = ({
 
 const mapStateToProps = state => ({
   isModalShowed: state.dailyBlock.isModalProduct,
-  isAllProductsLoader: state.dailyBlock.isAllProductsLoader,
-  productsByDay: state.dailyBlock.productsByDay
+  isAllProductsLoader: state.dailyBlock.isAllProductsLoader
 });
 
 const mapDispatchToProps = dis => ({
@@ -94,5 +94,6 @@ DiaryBlock.propTypes = {
     PropTypes.shape({
       calories: PropTypes.number.isRequired
     }).isRequired
-  ).isRequired
+  ).isRequired,
+  isAllProductsLoader: PropTypes.bool.isRequired
 };
