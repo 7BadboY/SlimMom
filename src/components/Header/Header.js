@@ -9,6 +9,7 @@ import cross from './Logo/cross.png';
 import logout from './Logo/logout.png';
 import styles from './Header.module.css';
 import { connect } from 'react-redux';
+import { toogleModalProductsAction } from '../../redux/actions/productActions';
 import PropTypes from 'prop-types';
 
 // const userToken = JSON.parse(localStorage.getItem('userToken'))
@@ -41,11 +42,9 @@ class Header extends Component {
   };
 
   render() {
-    const { toogleModal, logOut } = this;
+    const { toogleModal, logOut, toogleModalProducts } = this;
     const { openModal, isLogged, toogleIcon } = this.state;
     const { token, username } = this.props;
-
-    console.log('token: ', token);
     return (
       <div className={styles.header}>
         <div className={isLogged ? styles.container : styles.loggedContainer}>
@@ -92,7 +91,7 @@ class Header extends Component {
         </div>
         {isLogged && this.props.windowWidth < 768 && (
           <div className={styles.greyZone}>
-            <button className={styles.closeModal} />
+            <button type="button" onClick={toogleModalProducts} className={styles.closeModal} />
             <div className={styles.mobileLogoutBox}>
               <p className={styles.username}>{username}</p>{' '}
               <img onClick={logOut} className={styles.logoutButton} src={logout} />
@@ -106,7 +105,11 @@ class Header extends Component {
 const mapStateToProps = state => ({
   username: state.session.user.nickname
 });
-const mapDispatchToProps = {};
+const mapDispatchToProps = dispatch => ({
+  toogleModalProducts() {
+    dispatch(toogleModalProductsAction());
+  }
+});
 
 export default connect(
   mapStateToProps,
