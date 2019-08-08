@@ -69,7 +69,7 @@ export class DiaryBlock extends Component {
 }
 
 const mapStateToProps = state => ({
-  isModalShowed: state.dailyBlock.isModalProduct
+  isModalShowed: state.dailyBlock.isModalProductShowed
 });
 
 const mapDispatchToProps = dis => ({

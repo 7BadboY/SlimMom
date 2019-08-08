@@ -4,13 +4,11 @@ import { connect } from 'react-redux';
 import { Table, Tbody } from 'react-super-responsive-table';
 import Spinner from 'react-spinkit';
 import styles from './EatedProductsList.module.css';
-
 import EatedProductItem from './EatedProductItem/EatedProductItem';
 
 const EatedProductsList = ({ productsByDay, isProductsByDayLoader }) => {
   useEffect(() => {
-    console.log(221424);
-    console.log({ isProductsByDayLoader });
+    console.log('EatedProductsList is loaded');
   });
 
   return (

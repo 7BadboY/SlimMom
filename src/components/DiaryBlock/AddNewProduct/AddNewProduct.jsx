@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Selector from './ProductSelector/ProductSelector';
 
 const AddNewProduct = ({ toogleModal }) => {
   return (
     <div>
+      <Selector />
+
+      <input type="number" placeholder="Граммы" />
+
       <button onClick={null} type="button">
         Add product
       </button>

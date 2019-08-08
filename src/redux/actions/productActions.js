@@ -3,7 +3,8 @@ import {
   GET_ALL_PRODUCTS,
   GET_PRODUCTS_PER_DAY,
   TOOGLE_FETCH_PROD_BY_DAY_LOADER,
-  TOOGLE_FETCH_ALL_PROD_LOADER
+  TOOGLE_FETCH_ALL_PROD_LOADER,
+  SET_SELECTED_PROD
 } from './constants';
 import { fetchAllProducts, fetchProductsByDay } from '../../utils/requests';
 
@@ -12,6 +13,7 @@ export const toogleModalProductsAction = () => {
     type: TOOGLE_MODAL_PRODUCTS
   };
 };
+
 export const getAllProductsAction = token => dispatch => {
   // ТУГЛИТСЯ ДОЛЖЕН ЛОАДЕР ДЛЯ РЕАКТ СЕЛЕКТ!!
   dispatch({ type: TOOGLE_FETCH_ALL_PROD_LOADER });
@@ -51,6 +53,10 @@ export const getProductsByDayAction = (token, day) => dispatch => {
     });
 };
 
-// export const delProductByDayAction = (token, prodId) => dispatch => {
-//   dispatch();
-// };
+export const handlerSelectedProductAction = e => {
+  console.log(e);
+  return {
+    type: SET_SELECTED_PROD,
+    payload: e
+  };
+};

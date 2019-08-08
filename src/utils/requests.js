@@ -24,10 +24,24 @@ export const fetchCompleteTask = (token, task) => {
 
 // Получение всех продуктов для днивника
 // вызывается в экшене и записывает ответ в стор
+
+
+ // пройтись по промисах и ресолв
+    // запрос на бек в ресолв, результат product.map(product=> ({
+    // value: product._id,
+    // label: product.title.ru
+    // })) записать в переменную, вывести в ресолв
+
+
 export const fetchAllProducts = (token) => {
   return axios.get(api.url.products(), setToken(token))
   .then(resp => {
     const { products } = resp.data;
+    // const newProducts = products.map(product=>({
+    //   value: product._id,
+    // label: product.title.ru
+    // }))
+    // console.log(products);
     return products
   })
   .catch(err=> {console.log(err)});

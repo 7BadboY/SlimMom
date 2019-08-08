@@ -89,6 +89,6 @@ yarn-error.log*
 /.idea
 
 #personal usage Pasha
-.eslintrc.json
+.eslintrc
 .editorconfig
 .prettierignore
