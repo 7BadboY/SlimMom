@@ -12,4 +12,3 @@ export const sessionReducer = (state = INITIAL_STATE, { type, payload }) => {
 };
 
 export default sessionReducer;
-

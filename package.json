@@ -1,5 +1,5 @@
 {
-  "name": "SlimMom",
+  "name": "y",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://github.com/AndrewSlobodianiuk/SlimMom.git",
@@ -21,6 +21,7 @@
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
     "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
     "eslint-config-react-app": "^4.0.1",
     "eslint-loader": "2.1.2",
     "eslint-plugin-flowtype": "2.50.1",
@@ -47,6 +48,7 @@
     "postcss-normalize": "7.0.1",
     "postcss-preset-env": "6.6.0",
     "postcss-safe-parser": "4.0.1",
+    "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-app-polyfill": "^1.0.1",
@@ -58,6 +60,7 @@
     "react-loader-spinner": "^2.3.0",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
+    "react-select": "^3.0.4",
     "react-spinkit": "^3.0.0",
     "react-super-responsive-table": "^4.3.12",
     "react-window-size": "^1.2.2",
@@ -102,6 +105,8 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "redux-devtools-extension": "^2.13.8"
   },
   "jest": {
@@ -153,5 +158,9 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/AndrewSlobodianiuk/SlimMom.git",
+  "author": "ваше имяwlad999 <wladmail25@gmeil.com>",
+  "license": "MIT"
 }

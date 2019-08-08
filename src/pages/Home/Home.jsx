@@ -4,10 +4,11 @@ class Home extends Component {
   state = {};
 
   render() {
-    return (<>
-      <Header />
-    </>
-    )
+    return (
+      <>
+        <Header />
+      </>
+    );
   }
 }
 
