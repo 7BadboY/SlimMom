@@ -1,0 +1,29 @@
+.btn {
+  display: block;
+  left: 50%;
+}
+
+.loginBox,
+.registerBox {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  width: 274px;
+}
+
+.inputSigin {
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 13px;
+  color: #999daa;
+}
+
+input {
+  border: none;
+  border-bottom: 1px;
+
+}
+
+.btn {
+  color: #fc842c;
+}

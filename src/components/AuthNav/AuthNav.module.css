@@ -1,0 +1,17 @@
+.authnav,
+.authnavItem,
+.authnavLink {
+  display: flex;
+  list-style: none;
+}
+
+.authnavItem,
+.authnavLink {
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+}
+
+.authnavLink {
+  font-size: 24px;
+}
