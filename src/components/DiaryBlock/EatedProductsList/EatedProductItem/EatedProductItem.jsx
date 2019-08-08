@@ -5,7 +5,7 @@ import { Tr, Td } from 'react-super-responsive-table';
 import styles from './EatedProductItem.module.css';
 import { ReactComponent as Delete } from '../../../../assets/icons/delete.svg';
 
-const EatedProductItem = ({ productItem }) => {
+const EatedProductItem = ({ productItem, deleteProduct }) => {
   return (
     <Tr className={styles.productWrapper}>
       <Td className={styles.product_title}>{productItem.title.ru}</Td>
@@ -18,7 +18,13 @@ const EatedProductItem = ({ productItem }) => {
         <span className={styles.as}>ккал</span>
       </Td>
       <Td className={styles.distBut}>
-        <button type="button" onClick={null} className={styles.but}>
+        <button
+          type="button"
+          onClick={() => {
+            deleteProduct(productItem._id);
+          }}
+          className={styles.but}
+        >
           <Delete className={styles.delete_svg} />
         </button>
       </Td>
@@ -34,7 +40,8 @@ EatedProductItem.propTypes = {
     }).isRequired,
     weight: PropTypes.number.isRequired,
     calories: PropTypes.number.isRequired
-  }).isRequired
+  }).isRequired,
+  deleteProduct: PropTypes.func.isRequired
 };
 
 export default EatedProductItem;

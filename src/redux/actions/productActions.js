@@ -3,7 +3,8 @@ import {
   GET_ALL_PRODUCTS,
   GET_PRODUCTS_PER_DAY,
   TOOGLE_FETCH_PROD_BY_DAY_LOADER,
-  TOOGLE_FETCH_ALL_PROD_LOADER
+  TOOGLE_FETCH_ALL_PROD_LOADER,
+  DELETE_PRODUCT_FROM_PRODUCTLIST
 } from './constants';
 import { fetchAllProducts, fetchProductsByDay } from '../../utils/requests';
 
@@ -50,6 +51,11 @@ export const getProductsByDayAction = (token, day) => dispatch => {
       dispatch({ type: TOOGLE_FETCH_PROD_BY_DAY_LOADER });
     });
 };
+
+export const deleteProductFromProductListAC = id => ({
+  type: DELETE_PRODUCT_FROM_PRODUCTLIST,
+  id
+});
 
 // export const delProductByDayAction = (token, prodId) => dispatch => {
 //   dispatch();

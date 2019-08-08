@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import { Table, Tbody } from 'react-super-responsive-table';
 import Spinner from 'react-spinkit';
 import styles from './EatedProductsList.module.css';
+import { deleteProductFromProductListAC } from '../../../redux/actions/productActions';
 
 import EatedProductItem from './EatedProductItem/EatedProductItem';
 
-const EatedProductsList = ({ productsByDay, isProductsByDayLoader }) => {
+const EatedProductsList = ({ productsByDay, isProductsByDayLoader, deleteProduct }) => {
   useEffect(() => {
-    console.log(221424);
-    console.log({ isProductsByDayLoader });
+    // console.log(221424);
+    // console.log({ isProductsByDayLoader });
   });
 
   return (
@@ -33,7 +34,7 @@ const EatedProductsList = ({ productsByDay, isProductsByDayLoader }) => {
         <Table className={styles.firstBlock}>
           <Tbody>
             {productsByDay.map(el => {
-              return <EatedProductItem productItem={el} key={el._id} />;
+              return <EatedProductItem productItem={el} key={el._id} deleteProduct={deleteProduct} />;
             })}
           </Tbody>
         </Table>
@@ -47,7 +48,13 @@ const mapStateToProps = state => ({
   productsByDay: state.dailyBlock.productsByDay
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = dispatch => ({
+  deleteProduct: id => {
+    dispatch(deleteProductFromProductListAC(id));
+  }
+});
+// follow: userId => {
+//       dispatch(followAC(userId));
 
 export default connect(
   mapStateToProps,
@@ -56,5 +63,6 @@ export default connect(
 
 EatedProductsList.propTypes = {
   productsByDay: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
-  isProductsByDayLoader: PropTypes.bool.isRequired
+  isProductsByDayLoader: PropTypes.bool.isRequired,
+  deleteProduct: PropTypes.func.isRequired
 };
