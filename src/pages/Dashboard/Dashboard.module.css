@@ -14,11 +14,9 @@ height: 100vh;
     }
     .calcDairyBlock_container{
       grid-area: c;
-      background-color: orange;
     }
     .summaryBlock_container {
       grid-area: s;
-      background-color: green;
     }
 @media(min-width: 1024px) {
   .grid {

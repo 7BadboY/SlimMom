@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import styles from './Dashboard.module.css';
 import Header from '../../components/Header/Header';
 import CalcForm from "../../components/CalcForm/CalcForm";
@@ -20,8 +20,7 @@ class Dashboard extends Component {
              <Header token={token} />
                </div>
              <div className={styles.calcDairyBlock_container}>
-                <Route path="/dashboard/calc/" exact component={<CalcForm />} />
-                {/* <Route path="/dashboard/diary/" component={diary} /> */}
+                <Route path="/dashboard/" exact component={CalcForm} />
                </div>
              <div className={styles.summaryBlock_container}>
               <Summary />
