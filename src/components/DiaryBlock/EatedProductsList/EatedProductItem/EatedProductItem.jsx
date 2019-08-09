@@ -6,6 +6,8 @@ import styles from './EatedProductItem.module.css';
 import { ReactComponent as Delete } from '../../../../assets/icons/delete.svg';
 
 const EatedProductItem = ({ productItem, deleteProduct }) => {
+  const token = localStorage.getItem('userToken');
+  console.log(token);
   return (
     <Tr className={styles.productWrapper}>
       <Td className={styles.product_title}>{productItem.title.ru}</Td>
@@ -21,7 +23,7 @@ const EatedProductItem = ({ productItem, deleteProduct }) => {
         <button
           type="button"
           onClick={() => {
-            deleteProduct(productItem._id);
+            deleteProduct(token, productItem._id);
           }}
           className={styles.but}
         >

@@ -44,6 +44,20 @@ export const fetchProductsByDay = (token, date) => {
   .catch(err=> {console.log(err.message)});
 }
 
-export const deleteProductsByDay = (id) =>{
-  return url.deleteProductsByDay(id)
-}
+// export const deleteProductsByDay = (id) =>{
+//   return url.deleteProductsByDay(id)
+// }
+
+export const DeleteProdByDay = (token, id) =>  {
+  return axios.delete(api.url.deleteProductsByDay() + id, setToken(token))
+.then((resp)=>{
+  // console.log(resp.data);
+if(resp.data.status !=='success'){
+ throw new Error("sdasDDDDDDda")
+} return resp.data})
+  .catch(err=>{
+    console.log('ANSWER ERROR')
+    console.log(err);
+    console.log(err.message);
+  return err})
+  }

@@ -23,8 +23,12 @@ const productReducer = (state = INITIAL_STATE, action) => {
       return { ...state, isModalProduct: !state.isModalProduct };
     case GET_ALL_PRODUCTS:
       return { ...state, allProducts: [...action.payload] };
+
     case GET_PRODUCTS_PER_DAY:
-      return { ...state, productsByDay: [...action.payload] };
+      return { ...state };
+    // case GET_PRODUCTS_PER_DAY:
+    //   return { ...state, productsByDay: [...action.payload] };
+
     case DELETE_PRODUCT_FROM_PRODUCTLIST: {
       const newProduct = state.productsByDay.filter(prod => prod._id !== action.id);
       return { ...state, productsByDay: newProduct };

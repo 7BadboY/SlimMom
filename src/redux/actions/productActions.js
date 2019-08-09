@@ -6,7 +6,7 @@ import {
   TOOGLE_FETCH_ALL_PROD_LOADER,
   DELETE_PRODUCT_FROM_PRODUCTLIST
 } from './constants';
-import { fetchAllProducts, fetchProductsByDay, deleteProductsByDay } from '../../utils/requests';
+import { fetchAllProducts, fetchProductsByDay, DeleteProdByDay } from '../../utils/requests';
 
 export const toogleModalProductsAction = () => {
   return {
@@ -57,13 +57,17 @@ export const deleteProductFromProductListAC = id => ({
   id
 });
 
-export const deleteProductFromProductListFunc = id => {
+export const deleteProductFromProductListFunc = (token, id) => {
+  console.log('asdasd');
   return dispatch => {
-    deleteProductsByDay(id).then(data => {
-      dispatch(deleteProductFromProductListAC(id));
-      console.log(data);
+    DeleteProdByDay(token, id).then(data => {
+      if (data.status === 'success') {
+        console.log('DATA STATUS', data.status);
+        dispatch(deleteProductFromProductListAC(id));
+        // console.log(data);
+      }
     });
-    dispatch(deleteProductFromProductListAC(id));
+    // dispatch(deleteProductFromProductListAC(id));
   };
 };
 // export const deleteProductFromProductListFunc = id => {
