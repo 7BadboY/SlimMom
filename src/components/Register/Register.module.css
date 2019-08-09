@@ -9,9 +9,16 @@
 }
 
 .item {
-  height: 425px;
+  height: 544px;
   width: 274px;
   border: 1px solid red;
+}
+
+.langMenu {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 70px;
 }
 
 .loginBox,

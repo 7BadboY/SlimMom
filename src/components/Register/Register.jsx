@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import PropTypes from 'prop-types';
 import classes from './Register.module.css';
-
+import DropdownMenu from '../DropdownLang/DropdownLang';
 class Register extends Component {
   constructor() {
     super();
@@ -52,7 +52,9 @@ class Register extends Component {
             Регистрация
           </button>
           <div className={classes.langMenu}>
-            <img src="../../assets/icons/" />
+            {/* DropDownMenu */}
+            {/* <img src="#" alt="flag" />
+            <img src="#" alt="arrow_down" /> */}
           </div>
         </form>
       </div>
