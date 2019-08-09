@@ -3,17 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Table, Tbody } from 'react-super-responsive-table';
 import Spinner from 'react-spinkit';
-// import * as Axios from 'axios';
 import styles from './EatedProductsList.module.css';
-// import { deleteProductFromProductListAC } from '../../../redux/actions/productActions';
 import { deleteProductFromProductListFunc } from '../../../redux/actions/productActions';
 import EatedProductItem from './EatedProductItem/EatedProductItem';
 
 const EatedProductsList = ({ productsByDay, isProductsByDayLoader, deleteProduct }) => {
-  useEffect(() => {
-    // console.log(221424);
-    // console.log({ isProductsByDayLoader });
-  });
+  useEffect(() => {});
 
   return (
     <>
@@ -48,17 +43,9 @@ const mapStateToProps = state => ({
   isProductsByDayLoader: state.dailyBlock.isProductsByDayLoader,
   productsByDay: state.dailyBlock.productsByDay
 });
-
-// const mapDispatchToProps = dispatch => ({
-//   deleteProduct: id => {
-//     // dispatch(deleteProductFromProductListAC(id));
-//     // deleteProductFromProductListFunc(id);
-//   }
-// });
-
 export default connect(
   mapStateToProps,
-  // mapDispatchToProps
+  //  вместо mapDispatchToProps объект ниже
   { deleteProduct: deleteProductFromProductListFunc }
 )(EatedProductsList);
 

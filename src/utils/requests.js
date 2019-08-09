@@ -1,9 +1,7 @@
 import axios from 'axios';
 import {} from '../redux/actions/auth';
 import * as api from './entyPoints';
-import {url} from './entyPoints';
-import {getAllProducts} from '../redux/actions/productActions'
-import store from '../redux/store'
+
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.get['Content-Type'] = 'application/json';
@@ -44,15 +42,10 @@ export const fetchProductsByDay = (token, date) => {
   .catch(err=> {console.log(err.message)});
 }
 
-// export const deleteProductsByDay = (id) =>{
-//   return url.deleteProductsByDay(id)
-// }
-
 export const DeleteProdByDay = (token, id) =>  {
   return axios.delete(api.url.deleteProductsByDay() + id, setToken(token))
 .then((resp)=>{
-  // console.log(resp.data);
-if(resp.data.status !=='success'){
+ if(resp.data.status !=='success'){
  throw new Error("sdasDDDDDDda")
 } return resp.data})
   .catch(err=>{

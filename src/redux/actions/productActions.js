@@ -58,27 +58,17 @@ export const deleteProductFromProductListAC = id => ({
 });
 
 export const deleteProductFromProductListFunc = (token, id) => {
-  console.log('asdasd');
   return dispatch => {
     DeleteProdByDay(token, id).then(data => {
       if (data.status === 'success') {
         console.log('DATA STATUS', data.status);
         dispatch(deleteProductFromProductListAC(id));
-        // console.log(data);
+      } else {
+        console.log('ERROR');
+        // dispatch(deleteProductFromProductListAC(id));
+        /*раскоментиоровать если сервер не отвечает
+        - для проверки удаления из списка */
       }
     });
-    // dispatch(deleteProductFromProductListAC(id));
   };
 };
-// export const deleteProductFromProductListFunc = id => {
-//   return dispatch => {
-//     Axios.delete(`https://slim-moms.goit.co.ua/api/v1/user/eats/${id}`).then(data => {
-//       dispatch(deleteProductFromProductListAC(id)).catch(err => {
-//         dispatch(deleteProductFromProductListAC(id));
-//         console.log('ERRRRR', err);
-//       });
-//       console.log(data);
-//     });
-//     dispatch(deleteProductFromProductListAC(id));
-//   };
-// };
