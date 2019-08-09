@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 //import PropTypes from 'prop-types';
 import classes from './Register.module.css';
-import DropdownMenu from '../DropdownLang/DropdownLang';
+import Icon from '../../components/Icon/Icon';
+
 class Register extends Component {
   constructor() {
     super();
@@ -51,11 +52,23 @@ class Register extends Component {
           <button type="submit" className={classes.btnRegister}>
             Регистрация
           </button>
-          <div className={classes.langMenu}>
-            {/* DropDownMenu */}
-            {/* <img src="#" alt="flag" />
-            <img src="#" alt="arrow_down" /> */}
-          </div>
+          {/* <div className={classes.langMenu}>
+            <ul className={classes.langList}>
+              <li>
+                <ul className={classes.flags}>
+                  <li>
+                    <Icon icon={Flag_Ru} alt="flag_ru" width="24px" height="24px" />
+                  </li>
+                  <li>
+                    <Icon icon={Flag_Ua} alt="flag_ua" width="24px" height="24px" />
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <Icon icon={Flag_Ua} alt="flag_ua" width="24px" height="24px" />
+              </li>
+            </ul>
+          </div> */}
         </form>
       </div>
       //   </div>

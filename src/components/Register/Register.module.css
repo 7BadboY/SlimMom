@@ -21,6 +21,11 @@
   margin-top: 70px;
 }
 
+.langList,
+.flags {
+  list-style: none;
+}
+
 .loginBox,
 .passwordBox,
 .btnRegister {
