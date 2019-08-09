@@ -78,12 +78,12 @@ class Header extends Component {
           )}
           {isLogged && !toogleIcon && this.props.windowWidth < 1024 && (
             <button className={styles.burgerBtn} onClick={toogleModal}>
-              <img onClick={toogleModal} className={styles.burger} src={burger} alt="burger button" />
+              <img className={styles.burger} src={burger} alt="burger button" />
             </button>
           )}
           {isLogged && toogleIcon && this.props.windowWidth < 1024 && (
             <button className={styles.burgerBtn} onClick={toogleModal}>
-              <img onClick={toogleModal} className={styles.cross} src={cross} alt="burger button" />
+              <img className={styles.cross} src={cross} alt="burger button" />
             </button>
           )}
           {openModal && this.props.windowWidth < 1024 && <Modal />}
