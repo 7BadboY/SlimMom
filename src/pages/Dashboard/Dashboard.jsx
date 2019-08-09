@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import styles from './Dashboard.module.css';
 import Header from '../../components/Header/Header';
 import CalcForm from "../../components/CalcForm/CalcForm";
@@ -12,14 +12,13 @@ export default class Dashboard extends Component {
   render() {
     const { token } = this.props;
     return (
-      <Router>
           <>
             <section className={styles.grid}>
              <div className={styles.headerBlock_container}>
-             <Header token={token} />
+              <Header token={token} />
                </div>
              <div className={styles.calcDairyBlock_container}>
-                <Route path="/dashboard" exact component={CalcForm} />
+              <Route path="/dashboard" exact component={CalcForm} />
                 {/* <Route path="/dashboard/" component={diary} /> */}
                </div>
              <div className={styles.summaryBlock_container}>
@@ -27,7 +26,6 @@ export default class Dashboard extends Component {
                </div>
             </section>
           </>
-      </Router>
 );
 }
 }
