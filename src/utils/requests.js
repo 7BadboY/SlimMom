@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {} from '../redux/actions/auth';
 import * as api from './entyPoints';
+import {url} from './entyPoints';
 import {getAllProducts} from '../redux/actions/productActions'
 import store from '../redux/store'
 
@@ -41,4 +42,8 @@ export const fetchProductsByDay = (token, date) => {
     return products
   })
   .catch(err=> {console.log(err.message)});
+}
+
+export const deleteProductsByDay = (id) =>{
+  return url.deleteProductsByDay(id)
 }

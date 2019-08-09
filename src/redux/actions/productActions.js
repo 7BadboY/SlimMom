@@ -6,7 +6,7 @@ import {
   TOOGLE_FETCH_ALL_PROD_LOADER,
   DELETE_PRODUCT_FROM_PRODUCTLIST
 } from './constants';
-import { fetchAllProducts, fetchProductsByDay } from '../../utils/requests';
+import { fetchAllProducts, fetchProductsByDay, deleteProductsByDay } from '../../utils/requests';
 
 export const toogleModalProductsAction = () => {
   return {
@@ -57,6 +57,24 @@ export const deleteProductFromProductListAC = id => ({
   id
 });
 
-// export const delProductByDayAction = (token, prodId) => dispatch => {
-//   dispatch();
+export const deleteProductFromProductListFunc = id => {
+  return dispatch => {
+    deleteProductsByDay(id).then(data => {
+      dispatch(deleteProductFromProductListAC(id));
+      console.log(data);
+    });
+    dispatch(deleteProductFromProductListAC(id));
+  };
+};
+// export const deleteProductFromProductListFunc = id => {
+//   return dispatch => {
+//     Axios.delete(`https://slim-moms.goit.co.ua/api/v1/user/eats/${id}`).then(data => {
+//       dispatch(deleteProductFromProductListAC(id)).catch(err => {
+//         dispatch(deleteProductFromProductListAC(id));
+//         console.log('ERRRRR', err);
+//       });
+//       console.log(data);
+//     });
+//     dispatch(deleteProductFromProductListAC(id));
+//   };
 // };
