@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import styles from './Dashboard.module.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import styles from './Dashboard.module.css';
+// import Header from '../../components/Header/Header';
+// import CalcForm from "../../components/CalcForm/CalcForm";
+// import Summary from '../../components/Summary/Summary';
 import windowSize from 'react-window-size';
 
 export default class Dashboard extends Component {
-  state = {
-  };
+  state = {};
 
   render() {
     return (
@@ -13,14 +15,14 @@ export default class Dashboard extends Component {
         <>
             <section className={styles.grid}>
              <div className={styles.headerBlock_container}>
-              <Header />
+              {/* <Header /> */}
                </div>
              <div className={styles.calcDairyBlock_container}>
-                <Route path="/dashboard/" exact component={} />
-                <Route path="/diary/" component={} />
+                {/* <Route path="/dashboard/" exact component={CalcForm} /> */}
+                {/* <Route path="/dashboard/" component={diary} /> */}
                </div>
              <div className={styles.summaryBlock_container}>
-              <SummaryBlock />
+              <Summary />
                </div>
            </section>
           </>
@@ -28,5 +30,3 @@ export default class Dashboard extends Component {
       );
   }
 }
-
-
