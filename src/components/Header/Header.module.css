@@ -43,14 +43,14 @@
   letter-spacing: 2px;
 }
 
-.greyZone, .greyZoneModalOpen {
+.greyZone, .greyZoneModalClose {
   width: 100%;
   display: flex;
   justify-content: space-between;
   background-color: #dddd;
 }
 
-.greyZoneModalOpen {
+.greyZoneModalClose {
   justify-content: flex-end;
 }
 
