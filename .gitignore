@@ -87,3 +87,8 @@ yarn-error.log*
 .idea
 .idea/
 /.idea
+
+#personal usage Pasha
+.eslintrc.json
+.editorconfig
+.prettierignore
