@@ -42,9 +42,9 @@ class Header extends Component {
   };
 
   render() {
-    const { toogleModal, logOut, toogleModalProducts } = this;
+    const { toogleModal, logOut } = this;
     const { openModal, isLogged, toogleIcon } = this.state;
-    const { token, username } = this.props;
+    const { username, isModalShowed, toogleModalProducts } = this.props;
     return (
       <div className={styles.header}>
         <div className={isLogged ? styles.container : styles.loggedContainer}>
@@ -90,11 +90,11 @@ class Header extends Component {
           {!isLogged && <UserBar />}
         </div>
         {isLogged && this.props.windowWidth < 768 && (
-          <div className={styles.greyZone}>
-            <button type="button" onClick={toogleModalProducts} className={styles.closeModal} />
+          <div className={isModalShowed ? styles.greyZone : styles.greyZoneModalOpen}>
+            {isModalShowed && <button type="button" onClick={toogleModalProducts} className={styles.closeModal} />}
             <div className={styles.mobileLogoutBox}>
               <p className={styles.username}>{username}</p>{' '}
-              <img onClick={logOut} className={styles.logoutButton} src={logout} />
+              <img onClick={logOut} className={styles.logoutButton} src={logout} alt="1" />
             </div>
           </div>
         )}
@@ -103,10 +103,11 @@ class Header extends Component {
   }
 }
 const mapStateToProps = state => ({
-  username: state.session.user.nickname
+  username: state.session.user.nickname,
+  isModalShowed: state.dailyBlock.isModalProduct
 });
 const mapDispatchToProps = dispatch => ({
-  toogleModalProducts() {
+  toogleModalProducts: () => {
     dispatch(toogleModalProductsAction());
   }
 });
