@@ -9,6 +9,5 @@ const Home = () => (
     </div>
   </div>
 );
->>>>>>> dev
 
 export default Home;
