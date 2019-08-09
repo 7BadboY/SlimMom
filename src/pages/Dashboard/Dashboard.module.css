@@ -9,15 +9,16 @@ grid-template-columns: 1fr;
 height: 100vh;
 
 }
-    .headerBlock_container {
-      grid-area: h;
-    }
-    .calcDairyBlock_container{
-      grid-area: c;
-    }
-    .summaryBlock_container {
-      grid-area: s;
-    }
+.headerBlock_container {
+  grid-area: h;
+}
+.calcDairyBlock_container{
+  grid-area: c;
+}
+.summaryBlock_container {
+  grid-area: s;
+}
+
 @media(min-width: 1024px) {
   .grid {
     grid-template-areas:

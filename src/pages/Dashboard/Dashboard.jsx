@@ -20,6 +20,7 @@ export default class Dashboard extends Component {
              <div className={styles.calcDairyBlock_container}>
               <Route path="/dashboard" exact component={CalcForm} />
                 {/* <Route path="/dashboard/" component={diary} /> */}
+                
                </div>
              <div className={styles.summaryBlock_container}>
               <Summary />
