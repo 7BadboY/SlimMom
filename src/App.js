@@ -7,11 +7,14 @@ import ProtectedComponent from './hoc/ProtectedComponent';
 
 function App() {
   return (
-    <Switch>
-      <ProtectedComponent active={false} path="/login" component={Login} />
-      <ProtectedComponent active={false} exact path="/" component={Home} />
-      <ProtectedComponent active={true} exact path="/dashboard" component={Dashboard} />
-    </Switch>
+    <>
+      <Switch>
+        <ProtectedComponent active={false} path="/login" component={Login} />
+        <ProtectedComponent active={false} exact path="/" component={Home} />
+        <ProtectedComponent active={true} exact path="/dashboard" component={Dashboard} />
+      </Switch>
+    </>
+
   );
 }
 
