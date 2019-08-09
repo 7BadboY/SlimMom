@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import styles from './Dashboard.module.css';
 import Header from '../../components/Header/Header';
-// import CalcForm from "../../components/CalcForm/CalcForm";
+import CalcForm from "../../components/CalcForm/CalcForm";
 // import Summary from '../../components/Summary/Summary';
 import windowSize from 'react-window-size';
 
@@ -10,7 +10,7 @@ export default class Dashboard extends Component {
   state = {};
 
   render() {
-    const { token } = this.props
+    const { token } = this.props;
     return (
       <Router>
           <>
@@ -19,7 +19,7 @@ export default class Dashboard extends Component {
              <Header token={token} />
                </div>
              <div className={styles.calcDairyBlock_container}>
-                {/* <Route path="/dashboard/" exact component={CalcForm} /> */}
+                <Route path="/dashboard" exact component={CalcForm} />
                 {/* <Route path="/dashboard/" component={diary} /> */}
                </div>
              <div className={styles.summaryBlock_container}>
