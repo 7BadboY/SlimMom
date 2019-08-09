@@ -90,7 +90,7 @@ class Header extends Component {
           {!isLogged && <UserBar />}
         </div>
         {isLogged && this.props.windowWidth < 768 && (
-          <div className={isModalShowed ? styles.greyZone : styles.greyZoneModalOpen}>
+          <div className={isModalShowed ? styles.greyZone : styles.greyZoneModalClose}>
             {isModalShowed && <button type="button" onClick={toogleModalProducts} className={styles.closeModal} />}
             <div className={styles.mobileLogoutBox}>
               <p className={styles.username}>{username}</p>{' '}

@@ -14,7 +14,6 @@ class Dashboard extends Component {
     const { token } = this.props;
     return (
       <>
-        <p>Dashboard</p>
         <Header token={token} />
         <DiaryBlock token={token} />
       </>
