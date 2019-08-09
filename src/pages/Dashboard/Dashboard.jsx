@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import styles from './Dashboard.module.css';
 import Header from '../../components/Header/Header';
 import CalcForm from "../../components/CalcForm/CalcForm";
-// import Summary from '../../components/Summary/Summary';
+import Summary from '../../components/Summary/Summary';
 import windowSize from 'react-window-size';
 
 export default class Dashboard extends Component {
@@ -22,7 +22,7 @@ export default class Dashboard extends Component {
                 {/* <Route path="/dashboard/" component={diary} /> */}
                </div>
              <div className={styles.summaryBlock_container}>
-              {/* <Summary /> */}
+              <Summary />
                </div>
             </section>
           </>
