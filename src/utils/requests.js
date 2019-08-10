@@ -33,22 +33,17 @@ export const fetchCompleteTask = (token, task) => {
     // })) записать в переменную, вывести в ресолв
 
 
-export const fetchAllProducts = (token) => {
-  return axios.get(api.url.products(), setToken(token))
+export const fetchAllProducts = (token,input) => {
+  return axios.get(api.url.products(input), setToken(token))
   .then(resp => {
-    const { products } = resp.data;
-    // const newProducts = products.map(product=>({
-    //   value: product._id,
-    // label: product.title.ru
-    // }))
-    // console.log(products);
-    return products
+    const { productsOptions } = resp.data;
+    return productsOptions
   })
   .catch(err=> {console.log(err)});
 }
 
 export const fetchProductsByDay = (token, date) => {
-  console.log(api.url.productsByDay()+ date);
+  console.log(api.url.productsByDay() + "/" + date);
   return axios.get(api.url.productsByDay()+ date, setToken(token))
   .then(resp => {
     const { products } = resp.data;

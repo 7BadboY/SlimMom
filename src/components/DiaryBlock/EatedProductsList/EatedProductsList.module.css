@@ -4,6 +4,7 @@
   border-spacing: 16px 0px;
   margin-left: -16px;
 }
-/* *{
-  outline: 1px solid green;
-} */
+
+.firstBlock{
+  margin-bottom: 15px;
+}

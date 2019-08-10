@@ -17,19 +17,20 @@ import styles from './DiaryBlock.module.css';
 
 const DiaryBlock = ({
   windowWidth,
-  setAllProd,
+  // setAllProd,
   setProductsByDay,
   isModalShowed,
   toogleModal,
-  token,
-  isAllProductsLoader
+  token
+  // isAllProductsLoader
 }) => {
   useEffect(() => {
-    console.log({ isAllProductsLoader });
+    // console.log({ isAllProductsLoader });
     console.log(`DiaryBlock: compDidMount`);
-    setAllProd(token);
     const date = new Date().getTime();
     setProductsByDay(token, date);
+
+    // setAllProd(token);
   }, []);
 
   const handleDate = e => {
@@ -82,8 +83,8 @@ DiaryBlock.propTypes = {
   windowWidth: PropTypes.number.isRequired,
   toogleModal: PropTypes.func.isRequired,
   isModalShowed: PropTypes.bool.isRequired,
-  setAllProd: PropTypes.func.isRequired,
+  // setAllProd: PropTypes.func.isRequired,
   setProductsByDay: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired,
-  isAllProductsLoader: PropTypes.bool.isRequired
+  token: PropTypes.string.isRequired
+  // isAllProductsLoader: PropTypes.bool.isRequired
 };

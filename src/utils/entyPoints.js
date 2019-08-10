@@ -3,6 +3,6 @@ const baseUrl = 'http://localhost:8081/api/v1/';
 
 
 export const url = {
-products: ()=> `${baseUrl}products/`,
-productsByDay:()=>`${baseUrl}user/eats/`
+products: (input)=> `${baseUrl}products?search=${input}`,
+productsByDay:()=>`${baseUrl}user/eats`
 };

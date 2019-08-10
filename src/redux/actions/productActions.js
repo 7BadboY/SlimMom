@@ -54,7 +54,6 @@ export const getProductsByDayAction = (token, day) => dispatch => {
 };
 
 export const handlerSelectedProductAction = e => {
-  console.log(e);
   return {
     type: SET_SELECTED_PROD,
     payload: e

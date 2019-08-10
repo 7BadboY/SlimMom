@@ -18,7 +18,7 @@ import { fetchAllProducts } from '../../../../utils/requests';
 const colourStyles = {
   control: styles => ({ ...styles, backgroundColor: 'white' }),
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    const color = data.color ? chroma(data.color) : '000';
+    const color = data.color ? chroma(data.color) : '#800';
     return {
       ...styles,
       backgroundColor: isDisabled ? null : isSelected ? data.color : isFocused ? color.alpha(0.1).css() : null,
@@ -40,28 +40,25 @@ const SelectWrapper = () => {
   const dispatch = useDispatch();
   const token = localStorage.getItem('userToken');
   // const getAllProducts = useCallback(() => dispatch(getAllProductsAction), [dispatch]);
-  console.log({ token });
 
-  const fetchProducts = async () => {
+  const fetchProducts = async input => {
     try {
-      const products = await fetchAllProducts(token);
-      console.log({ products });
-
-      const newProducts = products.map(product => ({
-        value: product._id,
-        label: product.title.ru
-      }));
-      return newProducts;
+      const productsOptions = await fetchAllProducts(token, input);
+      return productsOptions;
     } catch (err) {
       return console.log(err);
     }
   };
 
-  const PromiseTestValue = async () => {
-    const productsFromDB = await fetchProducts();
+  const PromiseTestValue = async input => {
+    const productsFromDB = await fetchProducts(input);
     console.log(`asdasd`, { productsFromDB });
     return productsFromDB;
   };
+
+  // useEffect(() => {
+  //    // setAllProd(token);
+  // }, [])
 
   const defaultValue = {
     value: 'Placeholder',
