@@ -26,8 +26,6 @@ const productReducer = (state = INITIAL_STATE, action) => {
 
     case GET_PRODUCTS_PER_DAY:
       return { ...state };
-    // case GET_PRODUCTS_PER_DAY:
-    //   return { ...state, productsByDay: [...action.payload] };
 
     case DELETE_PRODUCT_FROM_PRODUCTLIST: {
       const newProduct = state.productsByDay.filter(prod => prod._id !== action.id);
@@ -39,14 +37,3 @@ const productReducer = (state = INITIAL_STATE, action) => {
   }
 };
 export default productReducer;
-
-// return {
-//   ...state,
-//   productsByDay: state.productsByDay.filter(prod => {
-//     if (prod._id !== action.id) {
-//       console.log(prod);
-//       return { ...prod };
-//     }
-//     return prod;
-//   })
-// };

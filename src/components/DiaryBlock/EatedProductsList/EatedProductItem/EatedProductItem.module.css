@@ -3,7 +3,8 @@
   margin: 0 auto;
   height: 50px;
 }
-.productWrapper:nth-of-type(){
+
+.productWrapper:nth-of-type() {
   padding: 0 20px;
 }
 
@@ -45,7 +46,6 @@
 .but {
   padding: 0;
   vertical-align: middle;
-  /* удаляем все стили кнопки */
   background: none;
   color: inherit;
   border: none;
@@ -73,14 +73,12 @@
 
 }
 
-/* @media () {} */
+
 @media (min-width: 768px) {
   .product_title {
     max-width: 30%;
     border-bottom: 1px solid grey;
     font-size: 15px;
-    /* vertical-align: middle;
-    padding: 0px 0 16px; */
     font-family: 'Verdana';
 
   }
@@ -90,8 +88,6 @@
     border-bottom: 1px solid grey;
     font-size: 15px;
     text-align: end;
-    /* vertical-align: middle; */
-    /* padding: 0px 0 16px; */
     font-family: 'Verdana';
   }
 
@@ -100,8 +96,6 @@
     border-bottom: 1px solid grey;
     font-size: 15px;
     text-align: end;
-    /* vertical-align: middle; */
-    /* padding: 0px 0 16px; */
     font-family: 'Verdana';
   }
 
@@ -115,20 +109,6 @@
 
     text-align: center;
     vertical-align: middle;
-    /* padding: 0px 0 16px; */
   }
 
 }
-
-
-
-
-/* @media (min-width: 1024px) {
-  .product_title {
-    max-width: 30%;
-    border-bottom: 1px solid grey;
-    font-size: 20px;
-    vertical-align: bottom;
-    padding: 0px 0 16px;
-  }
-} */

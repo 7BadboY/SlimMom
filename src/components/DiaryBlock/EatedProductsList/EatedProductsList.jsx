@@ -45,7 +45,6 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  //  вместо mapDispatchToProps объект ниже
   { deleteProduct: deleteProductFromProductListFunc }
 )(EatedProductsList);
 

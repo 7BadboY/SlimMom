@@ -5,8 +5,6 @@ import 'moment/locale/ru';
 import 'moment/locale/uk';
 import 'moment/locale/en-au';
 
-// import moment from 'moment';
-
 import styles from './DatePicker.module.css';
 
 const DatePicker = ({ handleDate }) => {

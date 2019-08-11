@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import AddNewProduct from './AddNewProduct/AddNewProduct';
 import DatePicker from './DatePicker/DatePicker';
 import EatedProductsList from './EatedProductsList/EatedProductsList';
-// import { products } from './products.json';
 import AddNewProductModal from './AddNewProductModal/AddNewProductModal';
 import ToogleModalButton from './ToogleModalButton/ToogleModalButton';
 import {
@@ -15,31 +14,16 @@ import {
 } from '../../redux/actions/productActions';
 import styles from './DiaryBlock.module.css';
 
-const DiaryBlock = ({
-  windowWidth,
-  setAllProd,
-  setProductsByDay,
-  isModalShowed,
-  toogleModal,
-  token
-  // productsByDay,
-  // isAllProductsLoader
-}) => {
+const DiaryBlock = ({ windowWidth, setAllProd, setProductsByDay, isModalShowed, toogleModal, token }) => {
   useEffect(() => {
-    // console.log({ productsByDay });
-    // console.log({ isAllProductsLoader });
-    // console.log(`compDidMount`);
     setAllProd(token);
     const date = new Date().getTime();
     setProductsByDay(token, date);
-  }, []);
+  }, [setAllProd, setProductsByDay, token]);
 
   const handleDate = e => {
-    // console.log(e._d);
     const date = e._d.getTime();
-
     setProductsByDay(token, date);
-    // console.log(date);
   };
 
   return (
@@ -88,10 +72,4 @@ DiaryBlock.propTypes = {
   setAllProd: PropTypes.func.isRequired,
   setProductsByDay: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired
-  // productsByDay: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     calories: PropTypes.number.isRequired
-  //   }).isRequired
-  // ).isRequired,
-  // isAllProductsLoader: PropTypes.bool.isRequired
 };

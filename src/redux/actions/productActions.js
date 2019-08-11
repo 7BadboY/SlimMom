@@ -14,7 +14,6 @@ export const toogleModalProductsAction = () => {
   };
 };
 export const getAllProductsAction = token => dispatch => {
-  // ТУГЛИТСЯ ДОЛЖЕН ЛОАДЕР ДЛЯ РЕАКТ СЕЛЕКТ!!
   dispatch({ type: TOOGLE_FETCH_ALL_PROD_LOADER });
   fetchAllProducts(token)
     .then(products => {
