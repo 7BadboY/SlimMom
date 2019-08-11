@@ -8,6 +8,7 @@ import 'moment/locale/en-au';
 // import moment from 'moment';
 
 import styles from './DatePicker.module.css';
+// import { Calendar } from '../../../assets/icons';
 
 const DatePicker = ({ handleDate }) => {
   return (

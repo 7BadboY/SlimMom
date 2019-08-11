@@ -16,7 +16,16 @@ import {
 import { fetchAllProducts } from '../../../../utils/requests';
 
 const colourStyles = {
-  control: styles => ({ ...styles, backgroundColor: 'white' }),
+  container: styles => ({
+    ...styles,
+    borderBottom: '1px var(--input-line-color) solid',
+    padding: '15px 0 0',
+    marginBottom: '15px'
+  }),
+  control: styles => ({
+    ...styles,
+    border: 'none'
+  }),
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
     const color = data.color ? chroma(data.color) : '#800';
     return {
@@ -31,9 +40,18 @@ const colourStyles = {
       }
     };
   },
-  input: styles => ({ ...styles }),
+  input: styles => ({ ...styles, margin: '0' }),
   placeholder: styles => ({ ...styles }),
-  singleValue: styles => ({ ...styles })
+  valueContainer: styles => ({ ...styles, padding: '0' }),
+  singleValue: styles => ({
+    ...styles,
+    padding: '0 0 0 5px',
+    fontSize: '13px',
+    fontFamily: 'Verdana',
+    color: 'var(--text-color-grey)',
+    margin: '0',
+    fontWeight: 700
+  })
 };
 
 const SelectWrapper = () => {
@@ -63,7 +81,7 @@ const SelectWrapper = () => {
   const defaultValue = {
     value: 'Placeholder',
     label: 'Введите название продукта',
-    color: '#ccc',
+    color: '#999daa',
     isFixed: true,
     isDisabled: true
   };
@@ -81,6 +99,8 @@ const SelectWrapper = () => {
       label="Single select"
       loadOptions={PromiseTestValue}
       styles={colourStyles}
+      noOptionsMessage={() => 'Ничего не найдено'}
+      components={{ IndicatorsContainer: () => null }}
     />
   );
 };

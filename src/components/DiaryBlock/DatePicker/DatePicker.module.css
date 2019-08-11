@@ -3,10 +3,35 @@
 }
 
 .datePicker_icon{
-  background: url('../../../assets//icons/calendar.png');
+  background: url('../../../assets//icons/date_range_black_24px.svg');
   width: 14px;
   height: 16px;
+  fill: #999daa;
   position: absolute;
-  top: 4px;
+  top: 5px;
   left: 125px;
+  background-size: cover;
+}
+.datePicker_icon:hover{
+  fill: #838a9a;
+}
+
+
+
+@media screen (min-width:768),
+(orientation: landscape)  {
+  .datePicker_wrapper{
+margin-bottom: 77px ;
+  }
+
+  .datePicker_icon{
+    top: 15px;
+    left: 245px;
+  }
+  .datePicker_icon{
+    width: 18px;
+    height: 20px;
+    fill: #999daa;
+  }
+
 }

@@ -26,11 +26,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ToogleModalButton.module.css';
+import { Add } from '../../../assets/icons';
 
 const ShowModalButton = ({ toogleModal }) => {
   return (
     <button type="button" onClick={toogleModal} className={styles.modal_button}>
-      +
+      <Add className={styles.add_icon} />
     </button>
   );
 };

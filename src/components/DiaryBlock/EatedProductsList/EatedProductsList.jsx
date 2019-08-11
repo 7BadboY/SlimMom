@@ -13,7 +13,7 @@ const EatedProductsList = ({ productsByDay, isProductsByDayLoader }) => {
 
   return (
     <>
-      {productsByDay.length === 0 && <p>В этот день ничего не ели!</p>}
+      {productsByDay.length === 0 && <p>Здесь будет отображаться Ваш рацион</p>}
       {isProductsByDayLoader && (
         <div className={styles.fetch_loader}>
           <Spinner

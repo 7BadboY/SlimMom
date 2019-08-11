@@ -85,6 +85,111 @@
         "updatedAt": "2019-08-04T18:33:01.163Z"
     },
     {
+      "title": {
+          "ru": "Омлет из яичного порошка",
+          "ua": "Омлет з яєчного порошку"
+      },
+      "categories": [
+          "яйца"
+      ],
+      "weight": 100,
+      "_id": "5d4724dcac81f92de0fd4236",
+      "calories": 200,
+      "groupBloodNotAllowed": {
+          "1": true,
+          "2": false,
+          "3": false,
+          "4": false
+      },
+      "__v": 0,
+      "createdAt": "2019-08-04T18:33:01.163Z",
+      "updatedAt": "2019-08-04T18:33:01.163Z"
+  },
+  {
+    "title": {
+        "ru": "Омлет из яичного порошка",
+        "ua": "Омлет з яєчного порошку"
+    },
+    "categories": [
+        "яйца"
+    ],
+    "weight": 100,
+    "_id": "5d4724dcac81f92de0fd4236",
+    "calories": 200,
+    "groupBloodNotAllowed": {
+        "1": true,
+        "2": false,
+        "3": false,
+        "4": false
+    },
+    "__v": 0,
+    "createdAt": "2019-08-04T18:33:01.163Z",
+    "updatedAt": "2019-08-04T18:33:01.163Z"
+},
+{
+  "title": {
+      "ru": "Омлет из яичного порошка",
+      "ua": "Омлет з яєчного порошку"
+  },
+  "categories": [
+      "яйца"
+  ],
+  "weight": 100,
+  "_id": "5d4724dcac81f92de0fd4236",
+  "calories": 200,
+  "groupBloodNotAllowed": {
+      "1": true,
+      "2": false,
+      "3": false,
+      "4": false
+  },
+  "__v": 0,
+  "createdAt": "2019-08-04T18:33:01.163Z",
+  "updatedAt": "2019-08-04T18:33:01.163Z"
+},
+{
+  "title": {
+      "ru": "Омлет из яичного порошка",
+      "ua": "Омлет з яєчного порошку"
+  },
+  "categories": [
+      "яйца"
+  ],
+  "weight": 100,
+  "_id": "5d4724dcac81f92de0fd4236",
+  "calories": 200,
+  "groupBloodNotAllowed": {
+      "1": true,
+      "2": false,
+      "3": false,
+      "4": false
+  },
+  "__v": 0,
+  "createdAt": "2019-08-04T18:33:01.163Z",
+  "updatedAt": "2019-08-04T18:33:01.163Z"
+},
+{
+  "title": {
+      "ru": "Омлет из яичного порошка",
+      "ua": "Омлет з яєчного порошку"
+  },
+  "categories": [
+      "яйца"
+  ],
+  "weight": 100,
+  "_id": "5d4724dcac81f92de0fd4236",
+  "calories": 200,
+  "groupBloodNotAllowed": {
+      "1": true,
+      "2": false,
+      "3": false,
+      "4": false
+  },
+  "__v": 0,
+  "createdAt": "2019-08-04T18:33:01.163Z",
+  "updatedAt": "2019-08-04T18:33:01.163Z"
+},
+    {
         "title": {
             "ru": "Омлет с сыром",
             "ua": "Омлет із сиром"

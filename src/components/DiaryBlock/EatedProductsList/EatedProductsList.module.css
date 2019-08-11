@@ -1,10 +1,10 @@
 .firstBlock {
   width: 100%;
-  /* border: 1px solid green; */
   border-spacing: 16px 0px;
   margin-left: -16px;
+  margin-bottom: 33px;
+
 }
 
 .firstBlock{
-  margin-bottom: 15px;
 }

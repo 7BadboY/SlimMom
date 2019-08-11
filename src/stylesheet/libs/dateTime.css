@@ -1,14 +1,28 @@
 /*!
  * https://github.com/YouCanBookMe/react-datetime
  */
+@import '../vars.css';
+
 
 .form-control{
   font-size: 17px;
   border: none;
   font-weight: bold;
-  line-height: 26px;
+  line-height: 1.529;
   width: 120px;
+  color: var( --text-color-black);
+  font-family: Verdana, sans-serif;
+  letter-spacing: 0.02em
 }
+
+@media screen (min-width:768),
+(orientation: landscape)  {
+  .form-control{
+    font-size: 35px;
+    line-height: 1.071;
+    width: 235px;
+  }
+  }
 
 
  .rdt {

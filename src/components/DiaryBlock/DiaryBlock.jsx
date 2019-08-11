@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import windowSize from 'react-window-size';
 import { connect } from 'react-redux';
+import { useOrientation } from 'react-use';
 import AddNewProduct from './AddNewProduct/AddNewProduct';
 import DatePicker from './DatePicker/DatePicker';
 import EatedProductsList from './EatedProductsList/EatedProductsList';
@@ -32,7 +33,6 @@ const DiaryBlock = ({
 
     // setAllProd(token);
   }, []);
-
   const handleDate = e => {
     // console.log(e._d);
     const date = e._d.getTime();
@@ -40,11 +40,18 @@ const DiaryBlock = ({
     console.log(date);
   };
 
+  const state = useOrientation();
+  const isLandscape = state.type.includes('landscape');
+
+  console.log(isLandscape);
+
   return (
     <div className={styles.diaryBlock_wrapper}>
-      <DatePicker handleDate={handleDate} />
+      {!isModalShowed && <DatePicker handleDate={handleDate} />}
+
       {windowWidth > 767 && <AddNewProduct />}
-      <EatedProductsList />
+
+      {!isModalShowed && <EatedProductsList />}
 
       {isModalShowed && windowWidth < 767 && (
         <AddNewProductModal>
