@@ -1,29 +1,66 @@
-.btn {
-  display: block;
-  left: 50%;
+.item,
+.loginBox,
+.passwordBox {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: 0 auto;
+
+}
+
+.item {
+  height: 544px;
+  width: 274px;
+  border: 1px solid red;
+}
+
+.langMenu {
+  height: 60px;
+  margin-top: 70px;
+}
+
+.langList {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.langList,
+.flags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .loginBox,
-.registerBox {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  width: 274px;
-}
-
-.inputSigin {
+.passwordBox,
+.btnLogin {
   font-family: Verdana;
   font-weight: bold;
   font-size: 13px;
-  color: #999daa;
+  color: var(--text-color-grey);
+  text-align: center;
 }
 
 input {
   border: none;
-  border-bottom: 1px;
-
+  border-bottom: 1px solid var(--input-line-color);
+  padding: 20px;
 }
 
-.btn {
-  color: #fc842c;
+.btnLogin {
+  display: block;
+  margin: 0 auto;
+  margin-top: 62px;
+  color: var(--text-color-white);
+  background-color: var(--button-color);
+  border-radius: 42px;
+  border: 1px solid var(--button-color);
+  width: 175px;
+  height: 42px;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 1;
+  transition: .3s linear;
 }

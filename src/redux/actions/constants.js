@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
 export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
@@ -39,3 +40,5 @@ export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
 //     type: LOG_OUT,
 //   }
 // }
+=======
+>>>>>>> 03f788ef68e3afb6559475ea442fee0c4a908f1f
