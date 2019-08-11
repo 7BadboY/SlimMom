@@ -23,3 +23,6 @@ transition: all 0.2s linear;
   fill: var(--button-icon-color);
   vertical-align: bottom;
 }
+.modal_button:focus {
+  outline: none
+}

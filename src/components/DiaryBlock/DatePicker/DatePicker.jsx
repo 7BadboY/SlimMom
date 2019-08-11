@@ -5,8 +5,6 @@ import 'moment/locale/ru';
 import 'moment/locale/uk';
 import 'moment/locale/en-au';
 
-// import moment from 'moment';
-
 import styles from './DatePicker.module.css';
 // import { Calendar } from '../../../assets/icons';
 
@@ -20,6 +18,7 @@ const DatePicker = ({ handleDate }) => {
         closeOnSelect
         onChange={handleDate}
       />
+      {/* <Calendar /> */}
       <i className={styles.datePicker_icon} />
     </div>
   );

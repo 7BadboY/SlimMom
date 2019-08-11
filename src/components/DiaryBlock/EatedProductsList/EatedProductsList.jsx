@@ -19,9 +19,10 @@ const EatedProductsList = ({ productsByDay, isProductsByDayLoader }) => {
           <Spinner
             name="pacman"
             style={{
-              color: 'red',
+              color: '#f47929',
               display: 'block',
-              margin: '0 auto'
+              margin: '0 auto',
+              transform: 'translate(50%, 50%)'
             }}
           />
         </div>

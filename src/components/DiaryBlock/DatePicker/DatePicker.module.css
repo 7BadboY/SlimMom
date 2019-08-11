@@ -11,6 +11,7 @@
   top: 5px;
   left: 125px;
   background-size: cover;
+  transition: all .2s linear;
 }
 .datePicker_icon:hover{
   fill: #838a9a;
@@ -18,10 +19,10 @@
 
 
 
-@media screen (min-width:768),
-(orientation: landscape)  {
+@media (min-width:768px),
+screen and (orientation: landscape) {
   .datePicker_wrapper{
-margin-bottom: 77px ;
+margin-bottom: 58px ;
   }
 
   .datePicker_icon{

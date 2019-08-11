@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import windowSize from 'react-window-size';
 import { connect } from 'react-redux';
-import { useOrientation } from 'react-use';
+import { useWindowSize, useEffectOnce } from 'react-use';
 import AddNewProduct from './AddNewProduct/AddNewProduct';
 import DatePicker from './DatePicker/DatePicker';
 import EatedProductsList from './EatedProductsList/EatedProductsList';
-// import { products } from './products.json';
 import AddNewProductModal from './AddNewProductModal/AddNewProductModal';
 import ToogleModalButton from './ToogleModalButton/ToogleModalButton';
 import {
@@ -16,50 +14,41 @@ import {
 } from '../../redux/actions/productActions';
 import styles from './DiaryBlock.module.css';
 
-const DiaryBlock = ({
-  windowWidth,
-  // setAllProd,
-  setProductsByDay,
-  isModalShowed,
-  toogleModal,
-  token
-  // isAllProductsLoader
-}) => {
-  useEffect(() => {
-    // console.log({ isAllProductsLoader });
+const DiaryBlock = ({ setProductsByDay, isModalShowed, toogleModal, token }) => {
+  useEffectOnce(() => {
     console.log(`DiaryBlock: compDidMount`);
     const date = new Date().getTime();
     setProductsByDay(token, date);
 
     // setAllProd(token);
   }, []);
+
   const handleDate = e => {
     // console.log(e._d);
-    const date = e._d.getTime();
-    setProductsByDay(token, date);
-    console.log(date);
+    if (typeof e === 'object') {
+      const date = e._d.getTime();
+      setProductsByDay(token, date);
+      console.log(date);
+    }
   };
 
-  const state = useOrientation();
-  const isLandscape = state.type.includes('landscape');
-
-  console.log(isLandscape);
-
+  const { width, height } = useWindowSize();
+  const isLandscape = width > height;
   return (
     <div className={styles.diaryBlock_wrapper}>
-      {!isModalShowed && <DatePicker handleDate={handleDate} />}
+      {(!isModalShowed || width > 767 || isLandscape) && <DatePicker handleDate={handleDate} />}
 
-      {windowWidth > 767 && <AddNewProduct />}
+      {(width > 767 || width > height) && <AddNewProduct />}
 
-      {!isModalShowed && <EatedProductsList />}
+      {(!isModalShowed || width > 767 || isLandscape) && <EatedProductsList />}
 
-      {isModalShowed && windowWidth < 767 && (
+      {isModalShowed && width < 767 && (
         <AddNewProductModal>
           <AddNewProduct toogleModal={toogleModal} />
         </AddNewProductModal>
       )}
 
-      {!isModalShowed && windowWidth < 767 && <ToogleModalButton toogleModal={toogleModal} />}
+      {!isModalShowed && (width < 767 && !isLandscape) && <ToogleModalButton toogleModal={toogleModal} />}
     </div>
   );
 };
@@ -84,14 +73,11 @@ const mapDispatchToProps = dis => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(windowSize(DiaryBlock));
+)(DiaryBlock);
 
 DiaryBlock.propTypes = {
-  windowWidth: PropTypes.number.isRequired,
   toogleModal: PropTypes.func.isRequired,
   isModalShowed: PropTypes.bool.isRequired,
-  // setAllProd: PropTypes.func.isRequired,
   setProductsByDay: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired
-  // isAllProductsLoader: PropTypes.bool.isRequired
 };
