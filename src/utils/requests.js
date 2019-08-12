@@ -15,10 +15,11 @@ export const setToken = token => ({
   }
 });
 
+
 // Example
-export const fetchCompleteTask = (token, task) => {
-  return axios.post(api.url.updateTask(), { ...task, isDone: true }, setToken(token)).catch(err => console.log(err));
-};
+// export const fetchCompleteTask = (token, task) => {
+//   return axios.post(api.url.updateTask(), { ...task, isDone: true }, setToken(token)).catch(err => console.log(err));
+// };
 
 
 
@@ -36,18 +37,31 @@ export const fetchCompleteTask = (token, task) => {
 export const fetchAllProducts = (token,input) => {
   return axios.get(api.url.products(input), setToken(token))
   .then(resp => {
+    console.log({resp});
     const { productsOptions } = resp.data;
     return productsOptions
   })
-  .catch(err=> {console.log(err)});
+  .catch(err=> {console.error(err)});
 }
 
 export const fetchProductsByDay = (token, date) => {
-  console.log(api.url.productsByDay() + "/" + date);
-  return axios.get(api.url.productsByDay()+ date, setToken(token))
+  console.log(api.url.userEats() + "/" + date);
+  return axios.get(`${api.url.userEats()}/${date}`, setToken(token))
   .then(resp => {
     const { products } = resp.data;
     return products
   })
-  .catch(err=> {console.log(err.message)});
+  .catch(err=> {console.error(err.message)});
+}
+
+export const fetchUserEated = (token, productId, weight) => {
+console.log({productId})
+  return axios.post(`${api.url.userEats()}/${productId}`, {weight} , setToken(token))
+  .then(resp => {
+   if(resp.data.status !== "success") {
+     throw new Error(resp.data)
+   }
+   return resp.data.products
+  })
+  .catch(err=> {console.error(err.message)});
 }

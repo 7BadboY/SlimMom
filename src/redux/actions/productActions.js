@@ -1,36 +1,40 @@
 import {
-  TOOGLE_MODAL_PRODUCTS,
+  SHOW_MODAL_PRODUCTS,
+  CLOSE_MODAL_PRODUCTS,
   GET_ALL_PRODUCTS,
   GET_PRODUCTS_PER_DAY,
   TOOGLE_FETCH_PROD_BY_DAY_LOADER,
-  TOOGLE_FETCH_ALL_PROD_LOADER,
-  SET_SELECTED_PROD
+  ADD_PRODUCT_BY_DAY,
+  FETCH_ERROR
 } from './constants';
-import { fetchAllProducts, fetchProductsByDay } from '../../utils/requests';
+import { fetchAllProducts, fetchProductsByDay, fetchUserEated } from '../../utils/requests';
 
-export const toogleModalProductsAction = () => {
+export const showModalProductsAction = () => {
   return {
-    type: TOOGLE_MODAL_PRODUCTS
+    type: SHOW_MODAL_PRODUCTS
+  };
+};
+
+export const closeModalProductsAction = () => {
+  return {
+    type: CLOSE_MODAL_PRODUCTS
   };
 };
 
 export const getAllProductsAction = token => dispatch => {
   // ТУГЛИТСЯ ДОЛЖЕН ЛОАДЕР ДЛЯ РЕАКТ СЕЛЕКТ!!
-  dispatch({ type: TOOGLE_FETCH_ALL_PROD_LOADER });
   fetchAllProducts(token)
     .then(products => {
       dispatch({
         type: GET_ALL_PRODUCTS,
         payload: products
       });
-      dispatch({ type: TOOGLE_FETCH_ALL_PROD_LOADER });
     })
     .catch(err => {
       dispatch({
-        type: 'ERROR',
+        type: FETCH_ERROR,
         payload: err
       });
-      dispatch({ type: TOOGLE_FETCH_ALL_PROD_LOADER });
     });
 };
 
@@ -46,35 +50,28 @@ export const getProductsByDayAction = (token, day) => dispatch => {
     })
     .catch(err => {
       dispatch({
-        type: 'ERROR',
+        type: FETCH_ERROR,
         payload: err
       });
       dispatch({ type: TOOGLE_FETCH_PROD_BY_DAY_LOADER });
     });
 };
 
-export const handlerSelectedProductAction = e => {
-  return {
-    type: SET_SELECTED_PROD,
-    payload: e
-  };
+export const addProductByDayAction = (token, productId, weight) => dispatch => {
+  fetchUserEated(token, productId, weight)
+    .then(products => {
+      dispatch({
+        type: ADD_PRODUCT_BY_DAY,
+        payload: products
+      });
+      dispatch({
+        type: CLOSE_MODAL_PRODUCTS
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: FETCH_ERROR,
+        payload: err
+      });
+    });
 };
-
-// export const addProductByDay = (token, date) => dispatch => {
-//   dispatch({ type: TOOGLE_FETCH_ALL_PROD_LOADER });
-//   fetchAllProducts(token)
-//     .then(products => {
-//       dispatch({
-//         type: GET_ALL_PRODUCTS,
-//         payload: products
-//       });
-//       dispatch({ type: TOOGLE_FETCH_ALL_PROD_LOADER });
-//     })
-//     .catch(err => {
-//       dispatch({
-//         type: 'ERROR',
-//         payload: err
-//       });
-//       dispatch({ type: TOOGLE_FETCH_ALL_PROD_LOADER });
-//     });
-// };

@@ -28,7 +28,7 @@ const EatedProductsList = ({ productsByDay, isProductsByDayLoader }) => {
         </div>
       )}
 
-      {!isProductsByDayLoader && (
+      {productsByDay && (
         <Table className={styles.firstBlock}>
           <Tbody>
             {productsByDay.map(el => {

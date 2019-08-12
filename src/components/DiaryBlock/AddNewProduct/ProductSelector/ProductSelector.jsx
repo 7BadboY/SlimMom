@@ -1,11 +1,8 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import chroma from 'chroma-js';
-import { useDispatch } from 'react-redux';
 import AsyncSelect from 'react-select/async';
 import { useWindowSize } from 'react-use';
 import PropTypes from 'prop-types';
-
-import { handlerSelectedProductAction } from '../../../../redux/actions/productActions';
 
 import { fetchAllProducts } from '../../../../utils/requests';
 
@@ -66,9 +63,10 @@ const colourStyles = () => {
   };
 };
 
-const SelectWrapper = ({ handlerInputWeight }) => {
-  const dispatch = useDispatch();
+const SelectWrapper = ({ handlerInputWeight, handlerProductSelect }) => {
   const token = localStorage.getItem('userToken');
+  console.log({ token });
+
   const fetchProducts = async input => {
     try {
       const productsOptions = await fetchAllProducts(token, input);
@@ -78,9 +76,9 @@ const SelectWrapper = ({ handlerInputWeight }) => {
     }
   };
 
-  const PromiseTestValue = async input => {
+  const PromiseOptions = async input => {
     const productsFromDB = await fetchProducts(input);
-    console.log(`asdasd`, { productsFromDB });
+    console.log(`productsFromDB: `, { productsFromDB });
     return productsFromDB;
   };
 
@@ -92,21 +90,17 @@ const SelectWrapper = ({ handlerInputWeight }) => {
     isDisabled: true
   };
 
-  const handlerSelectedProduct = useCallback(e => dispatch(handlerSelectedProductAction(e)), [dispatch]);
-
-  // const productsSTORE = useSelector(state => state.dailyBlock.allProducts);
-
   return (
     <AsyncSelect
       defaultValue={defaultValue}
       onChange={e => {
-        handlerSelectedProduct(e);
+        handlerProductSelect(e);
         handlerInputWeight(e);
       }}
       cacheOptions
       defaultOptions
-      label="Single select"
-      loadOptions={PromiseTestValue}
+      // label="Single select"
+      loadOptions={PromiseOptions}
       styles={colourStyles()}
       noOptionsMessage={() => 'Ничего не найдено'}
       components={{ IndicatorsContainer: () => null }}
@@ -115,7 +109,8 @@ const SelectWrapper = ({ handlerInputWeight }) => {
 };
 
 SelectWrapper.propTypes = {
-  handlerInputWeight: PropTypes.func.isRequired
+  handlerInputWeight: PropTypes.func.isRequired,
+  handlerProductSelect: PropTypes.func.isRequired
 };
 
 export default SelectWrapper;
