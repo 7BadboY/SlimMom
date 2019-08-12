@@ -27,7 +27,7 @@ const productReducer = (state = INITIAL_STATE, { type, payload }) => {
     case CLOSE_MODAL_PRODUCTS:
       return { ...state, isModalProductShowed: false };
     case GET_ALL_PRODUCTS:
-      return { ...state, allProducts: [...payload] };
+      return { ...state, allProducts: [...state.allProducts, ...payload] };
     case GET_PRODUCTS_PER_DAY:
       return { ...state, productsByDay: [...payload] };
     default:

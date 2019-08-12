@@ -5,105 +5,45 @@
             "ru": "Меланж яичный",
             "ua": "Меланж яєчний"
         },
-        "categories": [
-            "яйца"
-        ],
         "weight": 100,
         "_id": "5d4724dcac81f92dea0fd4233",
-        "calories": 157,
-        "groupBloodNotAllowed": {
-            "1": true,
-            "2": false,
-            "3": false,
-            "4": false
-        },
-        "__v": 0,
-        "createdAt": "2019-08-04T18:33:01.161Z",
-        "updatedAt": "2019-08-04T18:33:01.162Z"
+        "calories": 157
     },
     {
         "title": {
             "ru": "Омлет",
             "ua": "Ямлет"
         },
-        "categories": [
-            "яйца"
-        ],
         "weight": 100,
         "_id": "5d4724dcac81f92des0fd4234",
-        "calories": 184,
-        "groupBloodNotAllowed": {
-            "1": true,
-            "2": false,
-            "3": false,
-            "4": false
-        },
-        "__v": 0,
-        "createdAt": "2019-08-04T18:33:01.163Z",
-        "updatedAt": "2019-08-04T18:33:01.163Z"
+        "calories": 184
     },
     {
         "title": {
             "ru": "Омлет из взбитых сливок",
             "ua": "Омлет зі збитих вершків"
         },
-        "categories": [
-            "яйца"
-        ],
         "weight": 100,
         "_id": "5d4724fdcac81f92de0fd4235",
-        "calories": 257,
-        "groupBloodNotAllowed": {
-            "1": true,
-            "2": false,
-            "3": false,
-            "4": false
-        },
-        "__v": 0,
-        "createdAt": "2019-08-04T18:33:01.163Z",
-        "updatedAt": "2019-08-04T18:33:01.163Z"
+        "calories": 257
     },
     {
         "title": {
             "ru": "Омлет из яичного порошка",
             "ua": "Омлет з яєчного порошку"
         },
-        "categories": [
-            "яйца"
-        ],
         "weight": 100,
         "_id": "5d4724dcac81f92sde0fd4236",
-        "calories": 200,
-        "groupBloodNotAllowed": {
-            "1": true,
-            "2": false,
-            "3": false,
-            "4": false
-        },
-        "__v": 0,
-        "createdAt": "2019-08-04T18:33:01.163Z",
-        "updatedAt": "2019-08-04T18:33:01.163Z"
+        "calories": 200
     },
     {
       "title": {
           "ru": "Омлет из яичного порошка",
           "ua": "Омлет з яєчного порошку"
       },
-      "categories": [
-          "яйца"
-      ],
       "weight": 100,
       "_id": "5d4724dcac81f92de0fdx4236",
-      "calories": 200,
-      "groupBloodNotAllowed": {
-          "1": true,
-          "2": false,
-          "3": false,
-          "4": false
-      },
-      "__v": 0,
-      "createdAt": "2019-08-04T18:33:01.163Z",
-      "updatedAt": "2019-08-04T18:33:01.163Z"
+      "calories": 200
   }
   ]
       }

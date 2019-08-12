@@ -1,15 +1,24 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { Table, Tbody } from 'react-super-responsive-table';
 import Spinner from 'react-spinkit';
 import styles from './EatedProductsList.module.css';
 import EatedProductItem from './EatedProductItem/EatedProductItem';
+import { getProductsByDayAction } from '../../../redux/actions/productActions';
 
 const EatedProductsList = ({ productsByDay, isProductsByDayLoader }) => {
+  const dispatch = useDispatch();
+  const getProdByDay = (token, date) => {
+    dispatch(getProductsByDayAction(token, date));
+  };
+
   useEffect(() => {
     console.log('EatedProductsList is loaded');
-  });
+    const token = localStorage.getItem('userToken');
+    const date = new Date().getTime();
+    getProdByDay(token, date);
+  }, []);
 
   return (
     <>

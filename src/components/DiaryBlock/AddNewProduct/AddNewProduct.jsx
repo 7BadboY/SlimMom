@@ -10,7 +10,7 @@ const AddNewProduct = () => {
   const { width, height } = useWindowSize();
   const isLandscape = width > height;
   const [productWeight, setProductWeight] = useState('');
-  const [productId, setProductId] = useState(null);
+  const [productId, setProductId] = useState('');
   const dispatch = useDispatch();
 
   const handlerInputWeight = e => {
@@ -26,13 +26,13 @@ const AddNewProduct = () => {
   };
 
   const handlerAddButton = () => {
-    if (productWeight !== '' && productId !== null) {
+    if (productWeight !== '' && productId !== '') {
       const addUserEatedProduct = (token, id, weight) => dispatch(addProductByDayAction(token, id, weight));
       const weight = Number(productWeight);
       const token = localStorage.getItem('userToken');
       addUserEatedProduct(token, productId, weight);
       setProductWeight('');
-      setProductId(null);
+      setProductId('');
     }
   };
 

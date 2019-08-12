@@ -20,6 +20,7 @@ const DatePicker = () => {
     // console.log(e._d);
     if (typeof e === 'object') {
       const date = e._d.getTime();
+      console.log({ date });
       setProductsByDay(tokenFromlocalStorage, date);
       // console.log(date);
     }
