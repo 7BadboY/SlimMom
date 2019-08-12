@@ -1,57 +1,75 @@
 import React, { Component } from 'react';
-//import PropTypes from 'prop-types';
+// import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+// import PropTypes from 'prop-types';
+import * as operations from '../../redux/actions/auth';
+// import * as selectors from '.';
 import classes from './Login.module.css';
 import Icon from '../../components/Icon/Icon';
 
+// import { from } from 'rxjs';
+
 class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      nickname: '',
-      password: ''
-    };
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+  constructor(props) {
+    super(props);
+    const isAuthenticated = this.props.isAuthenticated('ytrdytdy', 'jhvukyvu');
   }
+  state = {
+    ...this.props.state,
+    valueLogin: '',
+    valuePassword: ''
+    // password: '',
+    // isAuthenticated: true
+  };
+  handleChange = ({ target }) => {
+    // const { value } = target;
+    console.log('TARGET', target.value);
+    this.setState({ valueLogin: target.value });
+    this.setState({ valuePassword: target.value });
+    // this.setState({ [valuePassword]: value });
+  };
+  // this.onChange = this.onChange.bind(this);
+  // this.onSubmit = this.onSubmit.bind(this);
 
-  onChange(e) {
-    this.setState({ [e.target.nickname]: e.target.value });
-  }
+  // onChange(e) {
+  //   this.setState({ [e.target.nickname]: e.target.value });
+  // }
 
-  onSubmit(e) {
-    e.preventDefault();
-
-    const user = {
-      nickname: this.state.nickname,
-      password: this.state.password
-    };
-  }
-
+  //   onSubmit(e) {
+  //     e.preventDefault();
+  //   //проверка на наличие пользователя
+  //   // const user = {
+  //     nickname: this.state.nickname,
+  //     password: this.state.password
+  //   };
   render() {
+    // debugger;
+    console.log('FUNCTION', this.isAuthenticated);
+    console.log('handleChange', this.handleChange);
+    console.log('STATE', this.state);
     return (
-      // <div className={classes.container}>
-      //   <div className={classes.row}>
       <div className={classes.item}>
         <form noValidate onSubmit={this.onSubmit}>
           <input
             type="text"
             className={classes.loginBox}
-            name="Логин"
+            nickname="Логин"
             placeholder="Логин *"
-            value={this.state.nickname}
-            onChange={this.onChange}
+            value={this.state.valueLogin}
+            onChange={this.handleChange}
           />
           <input
             type="text"
             className={classes.passwordBox}
-            name="Пароль"
+            password="Пароль"
             placeholder="Пароль *"
-            value={this.state.password}
-            onChange={this.onChange}
+            value={this.valuePassword}
+            onChange={this.handleChange}
           />
-          <button type="submit" className={classes.btnLogin}>
+          <button type="submit" className={classes.btnLogin} onClick={this.isAuthenticated}>
             Вход
           </button>
+
           <div className={classes.langMenu}>
             <ul className={classes.langList}>
               <li>
@@ -75,10 +93,24 @@ class Login extends Component {
           </div>
         </form>
       </div>
-      //   </div>
-      // </div>
     );
   }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+  // nickname: state.auth.nickname,
+  // password: state.auth.password
+  state: state.auth
+});
+
+const mapDispatchToProps = dispatch => ({
+  isAuthenticated: (nickname, password) => {
+    dispatch(operations.registerRequestAC(nickname, password));
+    console.log('HELLO');
+  }
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
+//export default Login;

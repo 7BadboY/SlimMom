@@ -2,5 +2,8 @@ const baseUrl = ' https://task-manager.goit.co.ua/api/';
 
 export const url = {
   // example
-  // loginUser: () => `${baseUrl}auth`,
+  // login & register
+  registerUser: () => `${baseUrl}auth/register`,
+  loginUser: () => `${baseUrl}auth/login`,
+  logoutUser: () => `${baseUrl}auth/logout`
 };
