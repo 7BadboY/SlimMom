@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 import styles from './Dashboard.module.css';
 import Header from '../../components/Header/Header';
-import Summary from '../../components/Summary/Summary';
-import windowSize from 'react-window-size';
 import DiaryWrapper from '../../components/DashboardComponents/DiaryWrapper/DiaryWrapper'
 import CalcFormWrapper from '../../components/DashboardComponents/CalcFormWrapper/CalcFormWrapper'
 import { connect } from 'react-redux'
@@ -21,9 +19,6 @@ class Dashboard extends Component {
 
   render() {
     const { token } = this.props;
-    const windowSize = this.props
-    console.log({ windowSize });
-    const width = windowSize.windowWidth;
     return (
       <>
         <section className={styles.grid}>
@@ -51,4 +46,4 @@ const mapDispatchToProps = dis => ({
 export default connect(
   null,
   mapDispatchToProps
-)(windowSize(Dashboard))
+)(Dashboard)
