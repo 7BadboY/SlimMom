@@ -12,7 +12,6 @@ import Icon from '../../components/Icon/Icon';
 class Login extends Component {
   constructor(props) {
     super(props);
-    const isAuthenticated = this.props.isAuthenticated('ytrdytdy', 'jhvukyvu');
   }
   state = {
     ...this.props.state,
@@ -21,12 +20,12 @@ class Login extends Component {
     // password: '',
     // isAuthenticated: true
   };
+  isAuthenticated = this.props.isAuthenticated('iuahf8ahfb89aeygf', 'kjsdnvisndviusdb');
+  // isAuthenticated = this.props.isAuthenticated(this.state.valueLogin, this.state.valuePassword);
   handleChange = ({ target }) => {
-    // const { value } = target;
-    console.log('TARGET', target.value);
-    this.setState({ valueLogin: target.value });
-    this.setState({ valuePassword: target.value });
-    // this.setState({ [valuePassword]: value });
+    const { name, value } = target;
+    // console.log('TARGET', target.value);
+    this.setState({ [name]: value });
   };
   // this.onChange = this.onChange.bind(this);
   // this.onSubmit = this.onSubmit.bind(this);
@@ -44,17 +43,19 @@ class Login extends Component {
   //   };
   render() {
     // debugger;
-    console.log('FUNCTION', this.isAuthenticated);
+    console.log('PROPS!!!', this.props);
+    console.log('FUNCTION', this.props.isAuthenticated);
     console.log('handleChange', this.handleChange);
     console.log('STATE', this.state);
     return (
       <div className={classes.item}>
-        <form noValidate onSubmit={this.onSubmit}>
+        <form onSubmit={this.isAuthenticated}>
           <input
             type="text"
             className={classes.loginBox}
             nickname="Логин"
             placeholder="Логин *"
+            name="valueLogin"
             value={this.state.valueLogin}
             onChange={this.handleChange}
           />
@@ -63,10 +64,15 @@ class Login extends Component {
             className={classes.passwordBox}
             password="Пароль"
             placeholder="Пароль *"
+            name="valuePassword"
             value={this.valuePassword}
             onChange={this.handleChange}
           />
-          <button type="submit" className={classes.btnLogin} onClick={this.isAuthenticated}>
+          <button
+            // type="submit"
+            className={classes.btnLogin}
+            //  onClick={this.isAuthenticated}
+          >
             Вход
           </button>
 
