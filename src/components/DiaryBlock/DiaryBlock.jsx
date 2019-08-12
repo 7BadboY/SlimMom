@@ -7,11 +7,7 @@ import DatePicker from './DatePicker/DatePicker';
 import EatedProductsList from './EatedProductsList/EatedProductsList';
 import AddNewProductModal from './AddNewProductModal/AddNewProductModal';
 import ToogleModalButton from './ToogleModalButton/ToogleModalButton';
-import {
-  toogleModalProductsAction,
-  getAllProductsAction,
-  getProductsByDayAction
-} from '../../redux/actions/productActions';
+import { toogleModalProductsAction, getProductsByDayAction } from '../../redux/actions/productActions';
 import styles from './DiaryBlock.module.css';
 
 const DiaryBlock = ({ setProductsByDay, isModalShowed, toogleModal, token }) => {
@@ -19,8 +15,6 @@ const DiaryBlock = ({ setProductsByDay, isModalShowed, toogleModal, token }) => 
     console.log(`DiaryBlock: compDidMount`);
     const date = new Date().getTime();
     setProductsByDay(token, date);
-
-    // setAllProd(token);
   }, []);
 
   const handleDate = e => {
@@ -61,9 +55,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dis => ({
   toogleModal() {
     dis(toogleModalProductsAction());
-  },
-  setAllProd(_token) {
-    dis(getAllProductsAction(_token));
   },
   setProductsByDay(tok, date) {
     dis(getProductsByDayAction(tok, date));

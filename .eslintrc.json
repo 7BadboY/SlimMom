@@ -36,7 +36,8 @@
     ],
     "no-underscore-dangle": "warn",
     "import/no-named-as-default": "warn",
-    "linebreak-style":"off"
+    "linebreak-style":"off",
+    "no-nested-ternary" :"off"
     },
   "globals": {
     "window": true,

@@ -59,3 +59,22 @@ export const handlerSelectedProductAction = e => {
     payload: e
   };
 };
+
+// export const addProductByDay = (token, date) => dispatch => {
+//   dispatch({ type: TOOGLE_FETCH_ALL_PROD_LOADER });
+//   fetchAllProducts(token)
+//     .then(products => {
+//       dispatch({
+//         type: GET_ALL_PRODUCTS,
+//         payload: products
+//       });
+//       dispatch({ type: TOOGLE_FETCH_ALL_PROD_LOADER });
+//     })
+//     .catch(err => {
+//       dispatch({
+//         type: 'ERROR',
+//         payload: err
+//       });
+//       dispatch({ type: TOOGLE_FETCH_ALL_PROD_LOADER });
+//     });
+// };

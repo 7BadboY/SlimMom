@@ -1,27 +1,17 @@
-/* eslint-disable no-nested-ternary */
 import React, { useCallback } from 'react';
 import chroma from 'chroma-js';
-import {
-  //  useSelector,
-  useDispatch
-} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import AsyncSelect from 'react-select/async';
-// import PropTypes from 'prop-types';
-// import products from './products';
-// import axios from 'axios';
-// import PropTypes from 'prop-types';
-import { useOrientation, useWindowSize } from 'react-use';
-import {
-  handlerSelectedProductAction
-  //  getAllProductsAction
-} from '../../../../redux/actions/productActions';
+import { useWindowSize } from 'react-use';
+import PropTypes from 'prop-types';
+
+import { handlerSelectedProductAction } from '../../../../redux/actions/productActions';
 
 import { fetchAllProducts } from '../../../../utils/requests';
 
 const colourStyles = () => {
-  const { width } = useWindowSize();
-  const state = useOrientation();
-  const isLandscape = state.type.includes('landscape');
+  const { width, height } = useWindowSize();
+  const isLandscape = width > height;
   return {
     container: styles => ({
       ...styles,
@@ -52,7 +42,7 @@ const colourStyles = () => {
         }
       };
     },
-    input: styles => ({
+    Input: styles => ({
       ...styles,
       margin: '0',
       fontFamily: 'Verdana',
@@ -76,10 +66,9 @@ const colourStyles = () => {
   };
 };
 
-const SelectWrapper = () => {
+const SelectWrapper = ({ handlerInputWeight }) => {
   const dispatch = useDispatch();
   const token = localStorage.getItem('userToken');
-  // const getAllProducts = useCallback(() => dispatch(getAllProductsAction), [dispatch]);
   const fetchProducts = async input => {
     try {
       const productsOptions = await fetchAllProducts(token, input);
@@ -94,10 +83,6 @@ const SelectWrapper = () => {
     console.log(`asdasd`, { productsFromDB });
     return productsFromDB;
   };
-
-  // useEffect(() => {
-  //    // setAllProd(token);
-  // }, [])
 
   const defaultValue = {
     value: 'Placeholder',
@@ -114,7 +99,10 @@ const SelectWrapper = () => {
   return (
     <AsyncSelect
       defaultValue={defaultValue}
-      onChange={handlerSelectedProduct}
+      onChange={e => {
+        handlerSelectedProduct(e);
+        handlerInputWeight(e);
+      }}
       cacheOptions
       defaultOptions
       label="Single select"
@@ -125,6 +113,9 @@ const SelectWrapper = () => {
     />
   );
 };
-SelectWrapper.propTypes = {};
+
+SelectWrapper.propTypes = {
+  handlerInputWeight: PropTypes.func.isRequired
+};
 
 export default SelectWrapper;

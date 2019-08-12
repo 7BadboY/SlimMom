@@ -1,20 +1,27 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
-import { useWindowSize, useOrientation } from 'react-use';
+import React, { useState } from 'react';
+import { useWindowSize } from 'react-use';
 import Selector from './ProductSelector/ProductSelector';
 import styles from './AddNewProduct.module.css';
 import { Add } from '../../../assets/icons';
 
 const AddNewProduct = () => {
-  const { width } = useWindowSize();
-  const state = useOrientation();
-  const isLandscape = state.type.includes('landscape');
+  const { width, height } = useWindowSize();
+  const isLandscape = width > height;
+  const [inputWeight, setInputWeight] = useState('');
+
+  const handlerInputWeight = e => {
+    if (inputWeight === '') {
+      setInputWeight(100);
+    } else if (inputWeight !== '' && e.target !== undefined) {
+      setInputWeight(e.target.value);
+    }
+  };
 
   const selecorHr = width < 767 && !isLandscape ? '100%' : '231px';
   return (
     <div className={styles.addProduct_wrapper}>
       <div className={styles.selectorWrapper}>
-        <Selector />
+        <Selector handlerInputWeight={handlerInputWeight} />
         <hr
           className={styles.afterSelector_hr}
           align="left"
@@ -25,7 +32,15 @@ const AddNewProduct = () => {
         />
       </div>
       <div className={styles.inputWrapper}>
-        <input type="number" placeholder="Граммы" step={10} className={styles.inputProduct_weight} />
+        <input
+          type="number"
+          placeholder="Граммы"
+          step={10}
+          className={styles.inputProduct_weight}
+          value={inputWeight}
+          onChange={handlerInputWeight}
+          onClick={handlerInputWeight}
+        />
         <hr className={styles.afterWeight_hr} align="left" noshade="true" color="#e5e5e5" size="1" width="100%" />
       </div>
 
