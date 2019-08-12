@@ -58,10 +58,10 @@ class Header extends Component {
             </div>
             {isLogged && this.props.windowWidth > 1024 && (
               <div className={styles.navigationBox}>
-                <NavLink className={styles.navigationLink} exact to="/diary">
+                <NavLink className={styles.navigationLink} exact to="/dashboard/diary">
                   Дневник
                 </NavLink>
-                <NavLink className={styles.navigationLink} exact to="/calc">
+                <NavLink className={styles.navigationLink} exact to="/dashboard">
                   Калькулятор
                 </NavLink>
               </div>
