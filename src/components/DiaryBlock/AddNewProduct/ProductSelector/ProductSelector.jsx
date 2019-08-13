@@ -13,11 +13,15 @@ const colourStyles = () => {
     container: styles => ({
       ...styles,
       margin: width < 768 && !isLandscape ? '0 0 2px' : '0 0 7px',
-      width: width < 768 && !isLandscape ? '100%' : '260px'
+      width: width < 768 && !isLandscape ? '100%' : '260px',
+      ':focus': {
+        outline: 'none'
+      }
     }),
     control: styles => ({
       ...styles,
-      border: 'none'
+      border: 'none',
+      boxShadow: 'none'
     }),
     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
       const color = data.color ? chroma(data.color) : '#800';
@@ -48,9 +52,7 @@ const colourStyles = () => {
       padding: '0 0 0 5px',
       color: 'var(--text-color-black)'
     }),
-    placeholder: styles => ({ ...styles }),
-    valueContainer: styles => ({ ...styles, padding: '0' }),
-    singleValue: styles => ({
+    placeholder: styles => ({
       ...styles,
       padding: width < 768 && !isLandscape ? '0 0 0 5px' : '0',
       fontSize: width < 768 && !isLandscape ? '13px' : '15px',
@@ -59,11 +61,22 @@ const colourStyles = () => {
       color: 'var(--text-color-grey)',
       margin: '0',
       fontWeight: 700
+    }),
+    valueContainer: styles => ({ ...styles, padding: '0' }),
+    singleValue: styles => ({
+      ...styles,
+      padding: width < 768 && !isLandscape ? '0 0 0 5px' : '0',
+      fontSize: width < 768 && !isLandscape ? '13px' : '15px',
+      fontFamily: 'Verdana',
+      lineHeight: 1.2,
+      color: 'var(--text-color-black)',
+      margin: '0',
+      fontWeight: 700
     })
   };
 };
 
-const SelectWrapper = ({ handlerInputWeight, handlerProductSelect }) => {
+const SelectWrapper = ({ handlerInputWeight, handlerProductSelect, productLabel }) => {
   const token = localStorage.getItem('userToken');
   console.log({ token });
 
@@ -81,25 +94,19 @@ const SelectWrapper = ({ handlerInputWeight, handlerProductSelect }) => {
     console.log(`productsFromDB: `, { productsFromDB });
     return productsFromDB;
   };
-
-  const defaultValue = {
-    value: 'Placeholder',
-    label: 'Введите название продукта',
-    color: '#999daa',
-    isFixed: true,
-    isDisabled: true
-  };
-
+  console.log({ productLabel });
   return (
     <AsyncSelect
-      defaultValue={defaultValue}
+      placeholder="Введите название продукта"
       onChange={e => {
         handlerProductSelect(e);
-        handlerInputWeight(e);
+        handlerInputWeight(100);
       }}
       cacheOptions
+      // value={productLabel}
       defaultOptions
-      // label="Single select"
+      timeFormat
+      label="Single select"
       loadOptions={PromiseOptions}
       styles={colourStyles()}
       noOptionsMessage={() => 'Ничего не найдено'}
@@ -110,7 +117,8 @@ const SelectWrapper = ({ handlerInputWeight, handlerProductSelect }) => {
 
 SelectWrapper.propTypes = {
   handlerInputWeight: PropTypes.func.isRequired,
-  handlerProductSelect: PropTypes.func.isRequired
+  handlerProductSelect: PropTypes.func.isRequired,
+  productLabel: PropTypes.string.isRequired
 };
 
 export default SelectWrapper;

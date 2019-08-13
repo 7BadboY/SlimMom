@@ -11,18 +11,23 @@ const AddNewProduct = () => {
   const isLandscape = width > height;
   const [productWeight, setProductWeight] = useState('');
   const [productId, setProductId] = useState('');
+  const [productLabel, setProductLabel] = useState('');
+
   const dispatch = useDispatch();
 
-  const handlerInputWeight = e => {
-    if (productWeight === '') {
-      setProductWeight(`100`);
-    } else if (productWeight !== '' && e.target !== undefined) {
-      setProductWeight(e.target.value);
-    }
+  const handlerInputWeight = value => {
+    setProductWeight(value);
+    // if (productWeight === '') {
+    //   setProductWeight(`100`);
+    // } else if (productWeight !== '' && e.target !== undefined) {
+    //   setProductWeight(e.target.value);
+    // }
   };
 
   const handlerProductSelect = e => {
+    console.log({ e });
     setProductId(e.value);
+    setProductLabel(e.label);
   };
 
   const handlerAddButton = () => {
@@ -40,7 +45,11 @@ const AddNewProduct = () => {
   return (
     <div className={styles.addProduct_wrapper}>
       <div className={styles.selectorWrapper}>
-        <Selector handlerInputWeight={handlerInputWeight} handlerProductSelect={handlerProductSelect} />
+        <Selector
+          handlerInputWeight={handlerInputWeight}
+          handlerProductSelect={handlerProductSelect}
+          productLabel={productLabel}
+        />
         <hr
           className={styles.afterSelector_hr}
           align="left"
@@ -57,7 +66,7 @@ const AddNewProduct = () => {
           step={10}
           className={styles.inputProduct_weight}
           value={productWeight}
-          onChange={handlerInputWeight}
+          onChange={e => handlerInputWeight(e.target.value)}
           // onClick={handlerInputWeight}
         />
         <hr className={styles.afterWeight_hr} align="left" noshade="true" color="#e5e5e5" size="1" width="100%" />
