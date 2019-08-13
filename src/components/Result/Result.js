@@ -9,9 +9,9 @@ class Result extends Component {
     dailyRate: 0,
     forbiddenProd: [],
     groupBlood: 0,
+    currentWeight: 0,
     age: 0,
     height: 0,
-    currentWeight: 0,
     desiredWeight: 0
   };
   backdropRef = createRef();

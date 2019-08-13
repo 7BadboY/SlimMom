@@ -15,7 +15,11 @@ const setToken = token => ({
 export const putNewData = (token, data) => {
   return axios
     .put(api.url.userData(), { ...data }, setToken(token))
-    .then(data => data)
+    .then(response => {
+      if (response.status === 200) {
+        return response;
+      }
+    })
     .catch(err => console.log(err));
 };
 // Example
