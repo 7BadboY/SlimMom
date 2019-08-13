@@ -25,7 +25,6 @@ export const setToken = token => ({
 export const fetchAllProducts = (token,input) => {
   return axios.get(api.url.products(input), setToken(token))
   .then(resp => {
-    console.log({resp});
     const { productsOptions } = resp.data;
     return productsOptions
   })

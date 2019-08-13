@@ -50,8 +50,9 @@ const colourStyles = () => {
       fontFamily: 'Verdana',
       lineHeight: 1.2,
       fontSize: width < 768 && !isLandscape ? '13px' : '15px',
-      padding: '0 0 0 5px',
-      color: 'var(--text-color-black)'
+      padding: width < 768 && !isLandscape ? '0 0 0 5px' : '0',
+      color: 'var(--text-color-black)',
+      fontWeight: 700
     }),
     placeholder: styles => ({
       ...styles,
@@ -77,9 +78,11 @@ const colourStyles = () => {
   };
 };
 
-const SelectWrapper = ({ handlerInputWeight, handlerProductSelect, productLabel }) => {
+const SelectWrapper = ({ handlerInputWeight, handlerProductSelect, productLabel, setProductLabel }) => {
   const token = localStorage.getItem('userToken');
-
+  // Это то что я пытался всунуть в value и очищать его при добавлении продукта,
+  // но так value не меняется если выбрать товар из списка. То значит я не прав(
+  // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   const fetchProducts = async input => {
     try {
       const productsOptions = await fetchAllProducts(token, input);
@@ -90,13 +93,12 @@ const SelectWrapper = ({ handlerInputWeight, handlerProductSelect, productLabel 
   };
 
   const PromiseOptions = async input => {
-    const productsFromDB = await fetchProducts(input);
-    return productsFromDB;
+    if (input.length >= 2) {
+      const productsFromDB = await fetchProducts(input);
+      return productsFromDB;
+    }
+    return [];
   };
-
-  // Это то что я пытался всунуть в value и очищать его при добавлении продукта,
-  // но так value не меняется если выбрать товар из списка. А значит я не прав(
-  console.log({ productLabel }); // консолька просто что б не ругался еслинт на неиспользуемую переменную)
 
   return (
     <AsyncSelect
@@ -104,9 +106,10 @@ const SelectWrapper = ({ handlerInputWeight, handlerProductSelect, productLabel 
       onChange={e => {
         handlerProductSelect(e);
         handlerInputWeight(100);
+        setProductLabel({ label: e.label });
       }}
       cacheOptions
-      // value={productLabel}
+      value={productLabel}
       defaultOptions
       timeFormat
       label="Single select"
@@ -117,11 +120,15 @@ const SelectWrapper = ({ handlerInputWeight, handlerProductSelect, productLabel 
     />
   );
 };
-
 SelectWrapper.propTypes = {
   handlerInputWeight: PropTypes.func.isRequired,
   handlerProductSelect: PropTypes.func.isRequired,
-  productLabel: PropTypes.string.isRequired
+  productLabel: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
+  setProductLabel: PropTypes.func.isRequired
+};
+
+SelectWrapper.defaultProps = {
+  productLabel: ''
 };
 
 export default SelectWrapper;

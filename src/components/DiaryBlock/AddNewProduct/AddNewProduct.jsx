@@ -11,6 +11,7 @@ const AddNewProduct = () => {
   const isLandscape = width > height;
   const [productWeight, setProductWeight] = useState('');
   const [productId, setProductId] = useState('');
+
   const [productLabel, setProductLabel] = useState('');
 
   const dispatch = useDispatch();
@@ -21,7 +22,6 @@ const AddNewProduct = () => {
 
   const handlerProductSelect = e => {
     setProductId(e.value);
-    setProductLabel(e.label);
   };
 
   const handlerAddButton = () => {
@@ -32,6 +32,7 @@ const AddNewProduct = () => {
       addUserEatedProduct(token, productId, weight);
       setProductWeight('');
       setProductId('');
+      setProductLabel('');
     }
   };
 
@@ -45,6 +46,7 @@ const AddNewProduct = () => {
           handlerInputWeight={handlerInputWeight}
           handlerProductSelect={handlerProductSelect}
           productLabel={productLabel}
+          setProductLabel={setProductLabel}
         />
         <hr
           className={styles.afterSelector_hr}
