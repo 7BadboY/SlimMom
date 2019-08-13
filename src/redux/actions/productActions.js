@@ -8,11 +8,11 @@ export const addNewDate = createAction(actionTypes.ADD_FETCH_SUCCESS);
 export const updateData = (token, data) => dispatch => {
   putNewData(token, data)
     .then(answ => {
-      dispatch(addNewDate(answ.userData));
+      dispatch(addNewDate(answ.data.userData));
       return true;
     })
     .catch(err => {
-      console.log('Trouble', err);
+      console.error('Trouble', err);
     });
 };
 
