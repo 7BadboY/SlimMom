@@ -121,7 +121,7 @@ class Header extends Component {
   }
 }
 const mapStateToProps = state => ({
-  username: state.session.user.nickname
+  username: state.session.nickname
 
   // -------------- modal flag(boolean) from DiaryBlock: ------------
   // isModalShowed: state.dailyBlock.isModalProduct
