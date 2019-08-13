@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import styles from './ToogleModalButton.module.css';
+import styles from './ShowModalButton.module.css';
 import { Add } from '../../../assets/icons';
-
 import { showModalProductsAction } from '../../../redux/actions/productActions';
 
 const ShowModalButton = () => {

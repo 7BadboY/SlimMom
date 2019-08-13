@@ -22,7 +22,6 @@ export const closeModalProductsAction = () => {
 };
 
 export const getAllProductsAction = token => dispatch => {
-  // ТУГЛИТСЯ ДОЛЖЕН ЛОАДЕР ДЛЯ РЕАКТ СЕЛЕКТ!!
   fetchAllProducts(token)
     .then(products => {
       dispatch({
@@ -65,7 +64,7 @@ export const addProductByDayAction = (token, productId, weight) => dispatch => {
         payload: products
       });
       dispatch({
-        type: CLOSE_MODAL_PRODUCTS
+        type: CLOSE_MODAL_PRODUCTS // а если мы в десктопе и модалки там в принципе и нет... так норм?
       });
     })
     .catch(err => {

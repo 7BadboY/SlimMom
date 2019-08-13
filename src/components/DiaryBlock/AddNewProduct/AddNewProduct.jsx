@@ -17,15 +17,9 @@ const AddNewProduct = () => {
 
   const handlerInputWeight = value => {
     setProductWeight(value);
-    // if (productWeight === '') {
-    //   setProductWeight(`100`);
-    // } else if (productWeight !== '' && e.target !== undefined) {
-    //   setProductWeight(e.target.value);
-    // }
   };
 
   const handlerProductSelect = e => {
-    console.log({ e });
     setProductId(e.value);
     setProductLabel(e.label);
   };
@@ -41,7 +35,9 @@ const AddNewProduct = () => {
     }
   };
 
-  const selecorHr = width < 767 && !isLandscape ? '100%' : '231px';
+  const selecorHrWidth = width < 767 && !isLandscape ? '100%' : '231px';
+  //   Знаю что Hr не то, лень сейчас переделывать ;(
+  //   Переделаю на бордеры инпутов ну или в дивы что б пиксель перфект (ну надо так 😎)
   return (
     <div className={styles.addProduct_wrapper}>
       <div className={styles.selectorWrapper}>
@@ -56,7 +52,7 @@ const AddNewProduct = () => {
           noshade="true"
           color="#e5e5e5"
           size="1"
-          width={selecorHr}
+          width={selecorHrWidth}
         />
       </div>
       <div className={styles.inputWrapper}>
@@ -67,7 +63,6 @@ const AddNewProduct = () => {
           className={styles.inputProduct_weight}
           value={productWeight}
           onChange={e => handlerInputWeight(e.target.value)}
-          // onClick={handlerInputWeight}
         />
         <hr className={styles.afterWeight_hr} align="left" noshade="true" color="#e5e5e5" size="1" width="100%" />
       </div>
@@ -78,5 +73,4 @@ const AddNewProduct = () => {
     </div>
   );
 };
-
 export default AddNewProduct;

@@ -14,7 +14,6 @@ const EatedProductsList = ({ productsByDay, isProductsByDayLoader }) => {
   };
 
   useEffect(() => {
-    console.log('EatedProductsList is loaded');
     const token = localStorage.getItem('userToken');
     const date = new Date().getTime();
     getProdByDay(token, date);

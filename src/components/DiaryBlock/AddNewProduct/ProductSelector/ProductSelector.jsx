@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import { fetchAllProducts } from '../../../../utils/requests';
 
+// Стили для react-selector
 const colourStyles = () => {
   const { width, height } = useWindowSize();
   const isLandscape = width > height;
@@ -78,23 +79,25 @@ const colourStyles = () => {
 
 const SelectWrapper = ({ handlerInputWeight, handlerProductSelect, productLabel }) => {
   const token = localStorage.getItem('userToken');
-  console.log({ token });
 
   const fetchProducts = async input => {
     try {
       const productsOptions = await fetchAllProducts(token, input);
       return productsOptions;
     } catch (err) {
-      return console.log(err);
+      return console.error(err);
     }
   };
 
   const PromiseOptions = async input => {
     const productsFromDB = await fetchProducts(input);
-    console.log(`productsFromDB: `, { productsFromDB });
     return productsFromDB;
   };
-  console.log({ productLabel });
+
+  // Это то что я пытался всунуть в value и очищать его при добавлении продукта,
+  // но так value не меняется если выбрать товар из списка. А значит я не прав(
+  console.log({ productLabel }); // консолька просто что б не ругался еслинт на неиспользуемую переменную)
+
   return (
     <AsyncSelect
       placeholder="Введите название продукта"

@@ -4,16 +4,16 @@ import {
   CLOSE_MODAL_PRODUCTS,
   TOOGLE_FETCH_PROD_BY_DAY_LOADER,
   GET_PRODUCTS_PER_DAY,
-  ADD_PRODUCT_BY_DAY
+  ADD_PRODUCT_BY_DAY,
+  FETCH_ERROR
 } from '../actions/constants';
-import { products } from '../../components/DiaryBlock/products.json';
 
 const INITIAL_STATE = {
   isModalProductShowed: false,
   allProducts: [],
   isProductsByDayLoader: false,
   selectedProduct: {},
-  productsByDay: [...products] // УДАЛИТЬ JSON
+  productsByDay: []
 };
 
 const productReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -30,6 +30,8 @@ const productReducer = (state = INITIAL_STATE, { type, payload }) => {
       return { ...state, allProducts: [...state.allProducts, ...payload] };
     case GET_PRODUCTS_PER_DAY:
       return { ...state, productsByDay: [...payload] };
+    case FETCH_ERROR:
+      return { ...state }; // Надо придумать что делать при фетч ероре. Всплывашку там какую то показать или типа того...
     default:
       return state;
   }

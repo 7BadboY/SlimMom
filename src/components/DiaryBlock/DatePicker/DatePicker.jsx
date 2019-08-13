@@ -12,17 +12,14 @@ import styles from './DatePicker.module.css';
 
 const DatePicker = () => {
   const dispatch = useDispatch();
-  const setProductsByDay = (token, date) => dispatch(getProductsByDayAction(token, date)); // фетч продуктов по дате
-  const tokenFromlocalStorage = localStorage.getItem('userToken');
+  const getProductsByDay = (token, date) => dispatch(getProductsByDayAction(token, date)); // фетч продуктов по дате
+  const token = localStorage.getItem('userToken');
 
   // Обработчик при клике на дату
   const handleDateClick = e => {
-    // console.log(e._d);
     if (typeof e === 'object') {
-      const date = e._d.getTime();
-      console.log({ date });
-      setProductsByDay(tokenFromlocalStorage, date);
-      // console.log(date);
+      const date = e._d.getTime(); // Берем дату в миллисек
+      getProductsByDay(token, date); // фетчим продукты и записиваем в стор
     }
   };
 
@@ -30,12 +27,11 @@ const DatePicker = () => {
     <div className={styles.datePicker_wrapper}>
       <ReactDatetime
         defaultValue={new Date()}
-        // timeFormat={false}
         locale={window.navigator.language}
         closeOnSelect
         onChange={handleDateClick}
       />
-      {/* <Calendar /> */}
+      {/* <Calendar />  */}
       <i className={styles.datePicker_icon} />
     </div>
   );
