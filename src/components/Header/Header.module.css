@@ -1,22 +1,34 @@
 .header {
-  display: flex;
-  flex-direction: column;
+
+  width: 100%;
   margin: 0 auto;
+
+}
+
+
+.loggedLogoNavigationBox {
+  display: flex;
+  align-items: center;
 }
 
 .container,
 .loggedContainer {
-  display: flex;
-  justify-content: space-between;
   border-bottom: 2px solid;
   border-color: #dddddd;
+  width: 100%;
+
+
 }
 
 .logotype {
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding-top: 4px;
+  width: 100%;
+  height: 80px;
+  justify-content: center;
+
+
 }
 
 .logoImg {
@@ -47,15 +59,16 @@
   display: flex;
   justify-content: space-between;
   background-color: #dddd;
+
 }
 
 .greyZoneModalClose {
   justify-content: flex-end;
+  vertical-align: center;
 }
 
 .closeModal {
   background: transparent;
-  /* background-image: url("./Logo/closeModal.png"); */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -97,24 +110,30 @@
   justify-content: flex-end;
   align-items: center;
   margin-right: 9px;
+
 }
 
 @media (min-width: 768px) {
   .header {
-    min-width: 768px;
+    width: 100%;
+    margin-left: 0;
+
+
   }
 
   .container,
   .loggedContainer {
     width: 100%;
+    height: 90px;
     display: flex;
     justify-content: space-between;
     border-bottom: 3px solid;
     border-color: #dddddd;
+
   }
 
   .logotype {
-    padding-left: 67px;
+    padding-left: 90px;
   }
 
   .usernameBurgerWrapper {
@@ -164,6 +183,11 @@
     font-family: "GothamProBold", sans-serif;
     font-weight: bold;
   }
+
+  .loggedLogoNavigationBox {
+    display: flex;
+    vertical-align: center;
+  }
 }
 
 
@@ -171,6 +195,7 @@
 
   .header {
     min-width: 1024px;
+    margin-left: 0;
   }
 
   .container,
@@ -261,4 +286,3 @@
     color: #2b2b2b;
   }
 }
-
