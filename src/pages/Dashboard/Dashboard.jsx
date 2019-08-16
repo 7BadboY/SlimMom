@@ -36,7 +36,7 @@ class Dashboard extends Component {
           <Route path="/dashboard" exact component={CalcForm} />
           <Route path="/dashboard/diary" component={DiaryBlock} />
         </div>
-        {user.userData ? (
+        {user.token ? (
           location.pathname === '/dashboard/diary' ? (
             windowWidth > 767 && (
               <div className={styles.summaryBlock_container}>
@@ -44,13 +44,13 @@ class Dashboard extends Component {
               </div>
             )
           ) : (
-              <div className={styles.summaryBlock_container}>
-                <Summary />
-              </div>
-            )
+            <div className={styles.summaryBlock_container}>
+              <Summary />
+            </div>
+          )
         ) : (
-            ''
-          )}
+          ''
+        )}
       </section>
     );
   }
