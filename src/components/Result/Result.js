@@ -1,4 +1,5 @@
 import React, { Component, createRef } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addAllData, updateData } from '../../redux/actions/productActions';
@@ -153,6 +154,28 @@ const mapDispatchToProps = dispatch => ({
   add: store => dispatch(addAllData(store)),
   newInfo: (token, data) => dispatch(updateData(token, data))
 });
+
+Result.propTypes = {
+  add: PropTypes.func,
+  newInfo: PropTypes.func,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  age: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  currentWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  desiredWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  groupBlood: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  session: PropTypes.shape({
+    token: PropTypes.string,
+    name: PropTypes.string,
+    userData: PropTypes.shape({
+      groupBlood: PropTypes.number,
+      dailyRate: PropTypes.number,
+      currentWeight: PropTypes.number,
+      age: PropTypes.number,
+      height: PropTypes.number,
+      desiredWeight: PropTypes.number
+    })
+  })
+};
 
 export default connect(
   mapStateToProps,
